@@ -51,10 +51,12 @@ function getPackages(tripType: string) {
   return honeymoonPackages;
 }
 
-const PackageCards = ({ tripType, onStartOver }: PackageCardsProps) => {
+const PackageCards = ({ tripType, profile = "Indian Resident", onStartOver }: PackageCardsProps) => {
   const packages = getPackages(tripType);
   const navigate = useNavigate();
   const [selectedPkg, setSelectedPkg] = useState<typeof packages[0] | null>(null);
+  const isInternational = profile === "International Traveler";
+  const getPrice = (pkg: typeof packages[0]) => isInternational ? pkg.priceUSD : pkg.priceINR;
 
   const whatsappNumber = "918637327297";
 
