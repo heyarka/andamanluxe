@@ -350,10 +350,10 @@ const CalculatorPage = () => {
                         includeInsurance ? "border-accent bg-accent/5" : "hover:border-accent/30"
                       }`}
                     >
-                      <div className="flex items-center gap-4">
-                        <ShieldCheck className="h-6 w-6 text-muted-foreground" />
-                        <div className="text-left">
-                          <h4 className="font-bold text-foreground">Add Travel Insurance</h4>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <ShieldCheck className="h-5 w-5 text-muted-foreground shrink-0" />
+                        <div className="text-left min-w-0">
+                          <h4 className="font-bold text-foreground text-sm">Add Travel Insurance</h4>
                           <p className="text-xs text-muted-foreground">₹500/person - Recommended</p>
                         </div>
                       </div>
