@@ -70,7 +70,7 @@ const PackageCards = ({ tripType, onStartOver }: PackageCardsProps) => {
   const handleWhatsApp = () => {
     if (selectedPkg) {
       const message = `Hi! I'm interested in booking the "${selectedPkg.name}" package (${selectedPkg.duration}, ${selectedPkg.price} per person). Could you share more details?`;
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+      window.location.href = `https://wa.me/918637327297?text=${encodeURIComponent(message)}`;
     }
   };
 
