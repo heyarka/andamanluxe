@@ -332,10 +332,10 @@ const CalculatorPage = () => {
                         includeFlights ? "border-accent bg-accent/5" : "hover:border-accent/30"
                       }`}
                     >
-                      <div className="flex items-center gap-4">
-                        <Plane className="h-6 w-6 text-muted-foreground" />
-                        <div className="text-left">
-                          <h4 className="font-bold text-foreground">Include Flight Estimates</h4>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <Plane className="h-5 w-5 text-muted-foreground shrink-0" />
+                        <div className="text-left min-w-0">
+                          <h4 className="font-bold text-foreground text-sm">Include Flight Estimates</h4>
                           <p className="text-xs text-muted-foreground">Approx. ₹12,000/person round-trip</p>
                         </div>
                       </div>
