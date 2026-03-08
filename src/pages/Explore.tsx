@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, Waves, Ship, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
