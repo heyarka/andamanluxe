@@ -31,7 +31,7 @@ const tripTypes = [
   { icon: Coffee, title: "Senior Travelers", description: "Relaxed pace, comfort & culture" },
 ];
 
-const stepLabels = ["Choose Your Profile", "Select Your Travel Style", "Your Details"];
+const stepLabels = ["Choose Your Profile", "Select Your Travel Style", "Your Perfect Packages"];
 
 const Book = () => {
   const [step, setStep] = useState(1);
