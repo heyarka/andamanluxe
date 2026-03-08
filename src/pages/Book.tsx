@@ -178,7 +178,7 @@ const Book = () => {
               </motion.div>
             )}
 
-            {/* Step 3: Contact Form */}
+            {/* Step 3: Packages */}
             {step === 3 && (
               <motion.div
                 key="step3"
@@ -187,64 +187,16 @@ const Book = () => {
                 exit={{ opacity: 0, x: 30 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="glass-card rounded-2xl p-8 max-w-2xl mx-auto">
-                  <form className="grid md:grid-cols-2 gap-5">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">First Name</label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <input type="text" placeholder="John" className="w-full rounded-lg border border-foreground/10 bg-background/50 pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Last Name</label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <input type="text" placeholder="Doe" className="w-full rounded-lg border border-foreground/10 bg-background/50 pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <input type="email" placeholder="john@example.com" className="w-full rounded-lg border border-foreground/10 bg-background/50 pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Phone</label>
-                      <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <input type="tel" placeholder="+91 98765 43210" className="w-full rounded-lg border border-foreground/10 bg-background/50 pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent" />
-                      </div>
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Travel Dates</label>
-                      <div className="relative">
-                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <input type="text" placeholder="Select your preferred dates" className="w-full rounded-lg border border-foreground/10 bg-background/50 pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent" />
-                      </div>
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Message</label>
-                      <div className="relative">
-                        <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                        <textarea rows={4} placeholder="Tell us about your dream trip..." className="w-full rounded-lg border border-foreground/10 bg-background/50 pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent resize-none" />
-                      </div>
-                    </div>
-                    <div className="md:col-span-2">
-                      <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground btn-primary-glow transition-all hover:brightness-110">
-                        Send Message
-                        <ArrowRight className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </form>
-                </div>
                 <button
                   onClick={() => setStep(2)}
-                  className="mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4" /> Back
                 </button>
+                <PackageCards
+                  tripType={tripType || "Honeymoon Couples"}
+                  onStartOver={() => { setStep(1); setProfile(null); setTripType(null); }}
+                />
               </motion.div>
             )}
           </AnimatePresence>
