@@ -11,6 +11,7 @@ import FerryServices from "./pages/FerryServices";
 import Book from "./pages/Book";
 import CustomizePackage from "./pages/CustomizePackage";
 import PackageDetailPage from "./pages/PackageDetailPage";
+import WhyChooseUs from "./pages/WhyChooseUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/book" element={<Book />} />
           <Route path="/customize" element={<CustomizePackage />} />
           <Route path="/package/:slug" element={<PackageDetailPage />} />
+          <Route path="/why-choose-us" element={<WhyChooseUs />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
