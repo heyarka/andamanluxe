@@ -85,8 +85,9 @@ const PackageCards = ({ tripType, profile = "Indian Resident", onStartOver }: Pa
 
   const handleEmail = () => {
     if (selectedPkg) {
+      const price = getPrice(selectedPkg);
       const subject = `Booking Inquiry: ${selectedPkg.name} Package`;
-      const body = `Hi,\n\nI'm interested in the "${selectedPkg.name}" package (${selectedPkg.duration}, ${selectedPkg.price} per person).\n\nPlease share more details.\n\nThank you!`;
+      const body = `Hi,\n\nI'm interested in the "${selectedPkg.name}" package (${selectedPkg.duration}, ${price} per person).\n\nPlease share more details.\n\nThank you!`;
       window.open(`mailto:contact@andamanluxe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_self");
     }
   };
