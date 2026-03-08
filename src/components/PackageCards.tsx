@@ -55,7 +55,7 @@ const PackageCards = ({ tripType, onStartOver }: PackageCardsProps) => {
   const navigate = useNavigate();
   const [selectedPkg, setSelectedPkg] = useState<typeof packages[0] | null>(null);
 
-  const whatsappNumber = "919876543210";
+  const whatsappNumber = "918637327297";
 
   const handleBookClick = (pkg: typeof packages[0]) => {
     setSelectedPkg(pkg);
@@ -75,14 +75,14 @@ const PackageCards = ({ tripType, onStartOver }: PackageCardsProps) => {
   };
 
   const handleCall = () => {
-    window.open("tel:+919876543210", "_self");
+    window.open("tel:+918637327297", "_self");
   };
 
   const handleEmail = () => {
     if (selectedPkg) {
       const subject = `Booking Inquiry: ${selectedPkg.name} Package`;
       const body = `Hi,\n\nI'm interested in the "${selectedPkg.name}" package (${selectedPkg.duration}, ${selectedPkg.price} per person).\n\nPlease share more details.\n\nThank you!`;
-      window.open(`mailto:bookings@andamanluxe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_self");
+      window.open(`mailto:contact@andamanluxe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_self");
     }
   };
 
