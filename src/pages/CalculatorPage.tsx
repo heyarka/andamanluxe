@@ -357,7 +357,7 @@ const CalculatorPage = () => {
                           <p className="text-xs text-muted-foreground">₹500/person - Recommended</p>
                         </div>
                       </div>
-                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 ${includeInsurance ? "bg-accent" : "bg-muted"}`}>
+                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeInsurance ? "bg-accent" : "bg-muted"}`}>
                         <div className={`h-6 w-6 rounded-full bg-background shadow transition-transform ${includeInsurance ? "translate-x-5" : "translate-x-0"}`} />
                       </div>
                     </button>
