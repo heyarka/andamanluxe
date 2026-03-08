@@ -3,17 +3,46 @@ import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowLeft, Star, Clock, MapPin, CheckCircle2, X, Calendar,
-  Hotel, UtensilsCrossed, Ship, ShieldCheck, Phone, Mail, Info
+  Hotel, UtensilsCrossed, Ship, ShieldCheck, Phone, Mail, Info,
+  Sparkles, MessageCircle, ArrowRight
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getPackageBySlug } from "@/data/packageDetails";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const PackageDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const pkg = getPackageBySlug(slug || "");
   const [activeDay, setActiveDay] = useState(0);
+  const [showBooking, setShowBooking] = useState(false);
+
+  const handleWhatsApp = () => {
+    if (pkg) {
+      const message = `Hi! I'm interested in booking the "${pkg.name}" package (${pkg.duration}, ${pkg.price}/person). Could you share more details?`;
+      window.location.href = `https://wa.me/918637327297?text=${encodeURIComponent(message)}`;
+    }
+  };
+  const handleCall = () => window.open("tel:+918637327297", "_self");
+  const handleEmail = () => {
+    if (pkg) {
+      const subject = `Booking Inquiry: ${pkg.name} Package`;
+      const body = `Hi,\n\nI'm interested in the "${pkg.name}" package (${pkg.duration}, ${pkg.price}/person).\n\nPlease share more details.\n\nThank you!`;
+      window.open(`mailto:contact@andamanluxe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_self");
+    }
+  };
+  const handleGoToContact = () => {
+    if (pkg) {
+      navigate(`/contact?package=${encodeURIComponent(pkg.name)}&duration=${encodeURIComponent(pkg.duration)}&price=${encodeURIComponent(pkg.price)}`);
+    }
+  };
 
   if (!pkg) {
     return (
@@ -79,7 +108,7 @@ const PackageDetailPage = () => {
                 <p className="text-sm text-muted-foreground">Starting from</p>
                 <p className="text-3xl md:text-4xl font-bold text-accent">{pkg.price}</p>
                 <p className="text-sm text-muted-foreground">per person</p>
-                <button onClick={() => navigate("/book")} className="mt-3 bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:brightness-110 transition-all text-sm">
+                <button onClick={() => setShowBooking(true)} className="mt-3 bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:brightness-110 transition-all text-sm">
                   Book This Package
                 </button>
               </div>
@@ -303,12 +332,54 @@ const PackageDetailPage = () => {
             >
               Back
             </button>
-            <button onClick={() => navigate("/book")} className="rounded-lg bg-accent text-accent-foreground px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all">
+            <button onClick={() => setShowBooking(true)} className="rounded-lg bg-accent text-accent-foreground px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all">
               Book Now
             </button>
           </div>
         </div>
       </div>
+
+      {/* Booking Dialog */}
+      <Dialog open={showBooking} onOpenChange={setShowBooking}>
+        <DialogContent className="sm:max-w-md rounded-2xl border-foreground/10 bg-card p-0 overflow-hidden">
+          <div className="h-1.5 w-full bg-gradient-to-r from-accent via-primary to-accent" />
+          <div className="p-5 md:p-8">
+            <DialogHeader className="text-center sm:text-center mb-4 md:mb-6">
+              <div className="flex h-10 w-10 md:h-14 md:w-14 items-center justify-center rounded-full bg-accent/15 mx-auto mb-3 md:mb-4">
+                <Sparkles className="h-5 w-5 md:h-7 md:w-7 text-accent" />
+              </div>
+              <DialogTitle className="font-display text-lg md:text-2xl font-bold text-foreground">You're Ready to Book!</DialogTitle>
+              <DialogDescription className="text-xs md:text-base text-muted-foreground mt-2">
+                Great choice! You've selected the <span className="font-semibold text-accent">{pkg?.name}</span> package ({pkg?.duration}, {pkg?.price}/person).
+              </DialogDescription>
+            </DialogHeader>
+            <div className="space-y-2 md:space-y-3">
+              <button onClick={handleGoToContact} className="w-full rounded-xl bg-accent text-accent-foreground py-3 text-xs md:text-sm font-semibold hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                Fill Out Contact Form <ArrowRight className="h-3.5 w-3.5 md:h-4 md:w-4" />
+              </button>
+              <div className="flex items-center gap-3 my-1">
+                <div className="h-px flex-1 bg-foreground/10" />
+                <span className="text-[9px] md:text-xs text-muted-foreground uppercase tracking-wider">or reach us directly</span>
+                <div className="h-px flex-1 bg-foreground/10" />
+              </div>
+              <div className="grid grid-cols-3 gap-2 md:gap-3">
+                <button onClick={handleWhatsApp} className="flex flex-col items-center gap-1.5 md:gap-2 rounded-xl border border-foreground/10 py-3 md:py-4 px-2 hover:bg-accent/5 hover:border-accent/30 transition-all">
+                  <MessageCircle className="h-4 w-4 md:h-5 md:w-5 text-accent" />
+                  <span className="text-[10px] md:text-xs font-semibold text-foreground">WhatsApp</span>
+                </button>
+                <button onClick={handleCall} className="flex flex-col items-center gap-1.5 md:gap-2 rounded-xl border border-foreground/10 py-3 md:py-4 px-2 hover:bg-accent/5 hover:border-accent/30 transition-all">
+                  <Phone className="h-4 w-4 md:h-5 md:w-5 text-accent" />
+                  <span className="text-[10px] md:text-xs font-semibold text-foreground">Call Us</span>
+                </button>
+                <button onClick={handleEmail} className="flex flex-col items-center gap-1.5 md:gap-2 rounded-xl border border-foreground/10 py-3 md:py-4 px-2 hover:bg-accent/5 hover:border-accent/30 transition-all">
+                  <Mail className="h-4 w-4 md:h-5 md:w-5 text-accent" />
+                  <span className="text-[10px] md:text-xs font-semibold text-foreground">Email</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
