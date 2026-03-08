@@ -106,7 +106,7 @@ const CalculatorPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
@@ -125,11 +125,11 @@ const CalculatorPage = () => {
       </section>
 
       {/* Main Content */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-24 overflow-x-hidden">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-[1fr_360px] gap-8">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8">
             {/* Left: Tabs & Content */}
-            <div>
+            <div className="min-w-0">
               {/* Tabs */}
               <div className="grid grid-cols-4 gap-1 bg-muted/30 rounded-xl p-1 mb-8">
                 {tabs.map((tab, i) => (
@@ -413,7 +413,7 @@ const CalculatorPage = () => {
             </div>
 
             {/* Right: Estimate Sidebar */}
-            <div className="lg:sticky lg:top-24 h-fit">
+            <div className="min-w-0 lg:sticky lg:top-24 h-fit">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -444,10 +444,10 @@ const CalculatorPage = () => {
                 {/* Line items */}
                 <div className="space-y-3 mb-6">
                   {breakdown.map((b) => (
-                    <div key={b.label} className="flex items-center justify-between text-sm">
-                      <span className="flex items-center gap-2 text-muted-foreground">
-                        <span className={`h-2 w-2 rounded-full ${b.color}`} />
-                        {b.label}
+                    <div key={b.label} className="flex items-center justify-between text-sm gap-2">
+                      <span className="flex items-center gap-2 text-muted-foreground min-w-0">
+                        <span className={`h-2 w-2 rounded-full ${b.color} shrink-0`} />
+                        <span className="truncate">{b.label}</span>
                       </span>
                       <span className="font-semibold text-foreground">₹{b.value.toLocaleString()}</span>
                     </div>
