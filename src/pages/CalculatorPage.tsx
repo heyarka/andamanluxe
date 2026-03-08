@@ -95,6 +95,7 @@ const CalculatorPage = () => {
     { label: "Transfers (Cabs)", value: estimate.transfers, color: "bg-green-500" },
     { label: "Ferry Tickets", value: estimate.ferry, color: "bg-green-500" },
     { label: "Activities", value: estimate.activities, color: "bg-green-500" },
+    { label: "Flights", value: estimate.flights, color: "bg-blue-500" },
     { label: "Insurance", value: estimate.insurance, color: "bg-green-500" },
     { label: "Misc. Budget", value: estimate.misc, color: "bg-pink-500" },
     { label: "GST (5%)", value: estimate.gst, color: "bg-muted-foreground" },
