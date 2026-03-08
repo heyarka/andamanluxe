@@ -108,14 +108,7 @@ const Book = () => {
                 <p className="text-muted-foreground">We'll curate the perfect experience for your group</p>
               </>
             )}
-            {step === 3 && (
-              <>
-                <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
-                  Let's Find Your <span className="text-accent italic">Perfect Trip</span>
-                </h1>
-                <p className="text-muted-foreground">Almost there! Fill in your details</p>
-              </>
-            )}
+            {step === 3 && null}
           </motion.div>
 
           <AnimatePresence mode="wait">
