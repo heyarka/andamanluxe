@@ -125,9 +125,9 @@ const CalculatorPage = () => {
       </section>
 
       {/* Main Content */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-24 overflow-x-hidden">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-[1fr_360px] gap-8">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8">
             {/* Left: Tabs & Content */}
             <div>
               {/* Tabs */}
