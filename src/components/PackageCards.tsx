@@ -29,50 +29,9 @@ const adventurePackages = [
 ];
 
 const seniorPackages = [
-  {
-    name: "Serene Getaway",
-    duration: "5D/4N",
-    islands: "2 Islands",
-    price: "$2,199",
-    image: honeymoon1,
-    recommended: false,
-    features: [
-      "Comfortable resort stay",
-      "Guided heritage walks",
-      "Scenic boat cruise",
-      "Wellness spa sessions",
-    ],
-  },
-  {
-    name: "Golden Retreat",
-    duration: "7D/6N",
-    islands: "3 Islands",
-    price: "$3,799",
-    image: honeymoon2,
-    recommended: true,
-    features: [
-      "Premium accessible rooms",
-      "Private car transfers",
-      "Cultural excursions",
-      "Gourmet dining",
-      "Sunset photography tour",
-    ],
-  },
-  {
-    name: "Platinum Leisure",
-    duration: "10D/9N",
-    islands: "4 Islands",
-    price: "$6,499",
-    image: honeymoon3,
-    recommended: false,
-    features: [
-      "Luxury suite with sea view",
-      "Personal travel assistant",
-      "Daily wellness program",
-      "Exclusive island tour",
-      "All meals included",
-    ],
-  },
+  { slug: "serene-getaway", name: "Serene Getaway", duration: "5D/4N", islands: "2 Islands", price: "$2,199", image: honeymoon1, recommended: false, features: ["Comfortable resort stay", "Guided heritage walks", "Scenic boat cruise", "Wellness spa sessions"] },
+  { slug: "golden-retreat", name: "Golden Retreat", duration: "7D/6N", islands: "3 Islands", price: "$3,799", image: honeymoon2, recommended: true, features: ["Premium accessible rooms", "Private car transfers", "Cultural excursions", "Gourmet dining", "Sunset photography tour"] },
+  { slug: "platinum-leisure", name: "Platinum Leisure", duration: "10D/9N", islands: "4 Islands", price: "$6,499", image: honeymoon3, recommended: false, features: ["Luxury suite with sea view", "Personal travel assistant", "Daily wellness program", "Exclusive island tour", "All meals included"] },
 ];
 
 function getPackages(tripType: string) {
