@@ -43,7 +43,7 @@ const AnimatedBackground = () => {
       }
 
       // Highlight grid intersections with pulsing dots
-      const dotAlpha = 0.15 + Math.sin(time * 3) * 0.08;
+      const dotAlpha = 0.08 + Math.sin(time * 3) * 0.04;
       ctx.fillStyle = `rgba(59, 130, 246, ${dotAlpha})`;
       for (let x = 0; x < canvas.width; x += gridSize) {
         for (let y = 0; y < canvas.height; y += gridSize) {
