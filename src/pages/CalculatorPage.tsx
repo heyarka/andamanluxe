@@ -182,7 +182,7 @@ const CalculatorPage = () => {
                   </div>
 
                   {/* Travelers & Days */}
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="glass-card rounded-xl p-5">
                       <p className="text-sm text-muted-foreground mb-3">How many travelers?</p>
                       <div className="flex items-center gap-4">
