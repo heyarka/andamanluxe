@@ -10,6 +10,7 @@ import WaterSports from "./pages/WaterSports";
 import FerryServices from "./pages/FerryServices";
 import Book from "./pages/Book";
 import CustomizePackage from "./pages/CustomizePackage";
+import PackageDetailPage from "./pages/PackageDetailPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
