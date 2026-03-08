@@ -185,12 +185,12 @@ const CalculatorPage = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="glass-card rounded-xl p-5">
                       <p className="text-sm text-muted-foreground mb-3">How many travelers?</p>
-                      <div className="flex items-center gap-4">
-                        <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50">
+                      <div className="flex items-center gap-3">
+                        <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
                           <Minus className="h-4 w-4" />
                         </button>
                         <span className="text-2xl font-bold text-accent w-8 text-center">{travelers}</span>
-                        <button onClick={() => setTravelers(Math.min(20, travelers + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50">
+                        <button onClick={() => setTravelers(Math.min(20, travelers + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
                           <Plus className="h-4 w-4" />
                         </button>
                         <span className="text-sm text-muted-foreground">persons</span>
