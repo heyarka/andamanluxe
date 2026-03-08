@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, Plane, Home, Users, Heart, Palmtree, Compass, Calendar, User, Mail, Phone, MessageSquare, ArrowRight, ArrowLeft, Check } from "lucide-react";
+import { Globe, Plane, Home, Users, Heart, Smile, Coffee, Calendar, User, Mail, Phone, MessageSquare, ArrowRight, ArrowLeft, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
@@ -24,13 +24,13 @@ const profiles = [
 ];
 
 const tripTypes = [
-  { icon: Heart, title: "Honeymoon", description: "Romantic getaway for two" },
-  { icon: Users, title: "Family Trip", description: "Fun for the whole family" },
-  { icon: Compass, title: "Adventure", description: "Thrilling experiences" },
-  { icon: Palmtree, title: "Leisure", description: "Relax and unwind" },
+  { icon: Heart, title: "Honeymoon Couples", description: "Romantic escapes & intimate experiences" },
+  { icon: Users, title: "Friends & Adventure", description: "Gen Z groups seeking thrills & fun" },
+  { icon: Smile, title: "Family Vacation", description: "Parents with kids, all ages welcome" },
+  { icon: Coffee, title: "Senior Travelers", description: "Relaxed pace, comfort & culture" },
 ];
 
-const stepLabels = ["Choose Your Profile", "Select Trip Type", "Your Details"];
+const stepLabels = ["Choose Your Profile", "Select Your Travel Style", "Your Details"];
 
 const Book = () => {
   const [step, setStep] = useState(1);
@@ -91,14 +91,30 @@ const Book = () => {
             transition={{ duration: 0.4 }}
             className="text-center mb-12"
           >
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
-              Let's Find Your <span className="text-accent italic">Perfect Trip</span>
-            </h1>
-            <p className="text-muted-foreground">
-              {step === 1 && "First, tell us a little about yourself"}
-              {step === 2 && "What kind of trip are you looking for?"}
-              {step === 3 && "Almost there! Fill in your details"}
-            </p>
+            {step === 1 && (
+              <>
+                <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
+                  Let's Find Your <span className="text-accent italic">Perfect Trip</span>
+                </h1>
+                <p className="text-muted-foreground">First, tell us a little about yourself</p>
+              </>
+            )}
+            {step === 2 && (
+              <>
+                <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
+                  Who Are You <span className="text-accent italic">Traveling With?</span>
+                </h1>
+                <p className="text-muted-foreground">We'll curate the perfect experience for your group</p>
+              </>
+            )}
+            {step === 3 && (
+              <>
+                <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
+                  Let's Find Your <span className="text-accent italic">Perfect Trip</span>
+                </h1>
+                <p className="text-muted-foreground">Almost there! Fill in your details</p>
+              </>
+            )}
           </motion.div>
 
           <AnimatePresence mode="wait">
@@ -132,7 +148,6 @@ const Book = () => {
               </motion.div>
             )}
 
-            {/* Step 2: Trip Type */}
             {step === 2 && (
               <motion.div
                 key="step2"
@@ -141,31 +156,31 @@ const Book = () => {
                 exit={{ opacity: 0, x: 30 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <button
+                  onClick={() => setStep(1)}
+                  className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ArrowLeft className="h-4 w-4" /> Back
+                </button>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                   {tripTypes.map((t) => (
                     <button
                       key={t.title}
                       onClick={() => handleTripSelect(t.title)}
-                      className={`glass-card rounded-2xl p-8 text-left transition-all hover:border-accent/50 hover:bg-accent/5 ${
+                      className={`glass-card rounded-2xl p-6 text-center transition-all hover:border-accent/50 hover:bg-accent/5 ${
                         tripType === t.title ? "border-accent bg-accent/10" : ""
                       }`}
                     >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 mb-5">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 mb-5 mx-auto">
                         <t.icon className="h-6 w-6 text-accent" />
                       </div>
-                      <h3 className="font-display text-lg font-bold text-foreground mb-1">
+                      <h3 className="font-display text-base font-bold text-foreground mb-1">
                         {t.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground">{t.description}</p>
+                      <p className="text-xs text-muted-foreground">{t.description}</p>
                     </button>
                   ))}
                 </div>
-                <button
-                  onClick={() => setStep(1)}
-                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <ArrowLeft className="h-4 w-4" /> Back
-                </button>
               </motion.div>
             )}
 
