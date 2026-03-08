@@ -17,50 +17,9 @@ const honeymoonPackages = [
 ];
 
 const familyPackages = [
-  {
-    name: "Family Fun",
-    duration: "5D/4N",
-    islands: "2 Islands",
-    price: "$1,999",
-    image: honeymoon1,
-    recommended: false,
-    features: [
-      "Family-friendly resort",
-      "Kids activity programs",
-      "Glass-bottom boat ride",
-      "Beach picnic experience",
-    ],
-  },
-  {
-    name: "Island Explorer",
-    duration: "7D/6N",
-    islands: "3 Islands",
-    price: "$3,499",
-    image: honeymoon2,
-    recommended: true,
-    features: [
-      "Multi-island hopping tour",
-      "Snorkeling for all ages",
-      "Cultural village visits",
-      "Mangrove kayaking",
-      "Underwater sea walk",
-    ],
-  },
-  {
-    name: "Grand Family",
-    duration: "10D/9N",
-    islands: "4 Islands",
-    price: "$5,999",
-    image: honeymoon3,
-    recommended: false,
-    features: [
-      "Premium family suite",
-      "Private island day trip",
-      "Adventure sports package",
-      "Photography session",
-      "All-inclusive dining",
-    ],
-  },
+  { slug: "family-fun", name: "Family Fun", duration: "5D/4N", islands: "2 Islands", price: "$1,999", image: honeymoon1, recommended: false, features: ["Family-friendly resort", "Kids activity programs", "Glass-bottom boat ride", "Beach picnic experience"] },
+  { slug: "island-explorer", name: "Island Explorer", duration: "7D/6N", islands: "3 Islands", price: "$3,499", image: honeymoon2, recommended: true, features: ["Multi-island hopping tour", "Snorkeling for all ages", "Cultural village visits", "Mangrove kayaking", "Underwater sea walk"] },
+  { slug: "grand-family", name: "Grand Family", duration: "10D/9N", islands: "4 Islands", price: "$5,999", image: honeymoon3, recommended: false, features: ["Premium family suite", "Private island day trip", "Adventure sports package", "Photography session", "All-inclusive dining"] },
 ];
 
 const adventurePackages = [
