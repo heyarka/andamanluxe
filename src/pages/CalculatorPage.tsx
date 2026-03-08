@@ -182,15 +182,15 @@ const CalculatorPage = () => {
                   </div>
 
                   {/* Travelers & Days */}
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="glass-card rounded-xl p-5">
                       <p className="text-sm text-muted-foreground mb-3">How many travelers?</p>
-                      <div className="flex items-center gap-4">
-                        <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50">
+                      <div className="flex items-center gap-3">
+                        <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
                           <Minus className="h-4 w-4" />
                         </button>
                         <span className="text-2xl font-bold text-accent w-8 text-center">{travelers}</span>
-                        <button onClick={() => setTravelers(Math.min(20, travelers + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50">
+                        <button onClick={() => setTravelers(Math.min(20, travelers + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
                           <Plus className="h-4 w-4" />
                         </button>
                         <span className="text-sm text-muted-foreground">persons</span>
@@ -198,12 +198,12 @@ const CalculatorPage = () => {
                     </div>
                     <div className="glass-card rounded-xl p-5">
                       <p className="text-sm text-muted-foreground mb-3">How long is your trip?</p>
-                      <div className="flex items-center gap-4">
-                        <button onClick={() => setDays(Math.max(2, days - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50">
+                      <div className="flex items-center gap-3">
+                        <button onClick={() => setDays(Math.max(2, days - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
                           <Minus className="h-4 w-4" />
                         </button>
                         <span className="text-2xl font-bold text-accent w-8 text-center">{days}</span>
-                        <button onClick={() => setDays(Math.min(21, days + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50">
+                        <button onClick={() => setDays(Math.min(21, days + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
                           <Plus className="h-4 w-4" />
                         </button>
                         <span className="text-sm text-muted-foreground">days</span>
@@ -263,33 +263,33 @@ const CalculatorPage = () => {
                   <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
                     <span className="w-1 h-6 bg-accent rounded-full" /> Pick your activities
                   </h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {activities.map((a, i) => (
                       <button
                         key={a.name}
                         onClick={() => toggleActivity(i)}
-                        className={`glass-card rounded-xl p-5 flex items-center gap-4 text-left transition-all ${
+                        className={`glass-card rounded-xl p-4 flex items-center gap-3 text-left transition-all ${
                           selectedActivities.includes(i) ? "border-accent bg-accent/5" : "hover:border-accent/30"
                         }`}
                       >
-                        <div className={`flex h-12 w-12 items-center justify-center rounded-xl shrink-0 ${
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-xl shrink-0 ${
                           selectedActivities.includes(i) ? "bg-accent/20" : "bg-muted/50"
                         }`}>
-                          <a.icon className={`h-6 w-6 ${selectedActivities.includes(i) ? "text-accent" : "text-muted-foreground"}`} />
+                          <a.icon className={`h-5 w-5 ${selectedActivities.includes(i) ? "text-accent" : "text-muted-foreground"}`} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-1.5 flex-wrap">
                             <h4 className="font-bold text-foreground text-sm">{a.name}</h4>
                             {a.popular && (
-                              <span className="text-[10px] font-bold bg-accent text-accent-foreground px-2 py-0.5 rounded-full flex items-center gap-1">
-                                <Star className="h-3 w-3" fill="currentColor" /> Popular
+                              <span className="text-[10px] font-bold bg-accent text-accent-foreground px-1.5 py-0.5 rounded-full flex items-center gap-0.5 shrink-0">
+                                <Star className="h-2.5 w-2.5" fill="currentColor" /> Popular
                               </span>
                             )}
                           </div>
                           <p className="text-xs text-accent font-semibold mt-0.5">+₹{a.cost.toLocaleString()}/person</p>
                         </div>
                         {selectedActivities.includes(i) && (
-                          <CheckCircle2 className="h-6 w-6 text-accent shrink-0" />
+                          <CheckCircle2 className="h-5 w-5 text-accent shrink-0" />
                         )}
                       </button>
                     ))}
@@ -332,14 +332,14 @@ const CalculatorPage = () => {
                         includeFlights ? "border-accent bg-accent/5" : "hover:border-accent/30"
                       }`}
                     >
-                      <div className="flex items-center gap-4">
-                        <Plane className="h-6 w-6 text-muted-foreground" />
-                        <div className="text-left">
-                          <h4 className="font-bold text-foreground">Include Flight Estimates</h4>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <Plane className="h-5 w-5 text-muted-foreground shrink-0" />
+                        <div className="text-left min-w-0">
+                          <h4 className="font-bold text-foreground text-sm">Include Flight Estimates</h4>
                           <p className="text-xs text-muted-foreground">Approx. ₹12,000/person round-trip</p>
                         </div>
                       </div>
-                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 ${includeFlights ? "bg-accent" : "bg-muted"}`}>
+                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeFlights ? "bg-accent" : "bg-muted"}`}>
                         <div className={`h-6 w-6 rounded-full bg-background shadow transition-transform ${includeFlights ? "translate-x-5" : "translate-x-0"}`} />
                       </div>
                     </button>
@@ -350,14 +350,14 @@ const CalculatorPage = () => {
                         includeInsurance ? "border-accent bg-accent/5" : "hover:border-accent/30"
                       }`}
                     >
-                      <div className="flex items-center gap-4">
-                        <ShieldCheck className="h-6 w-6 text-muted-foreground" />
-                        <div className="text-left">
-                          <h4 className="font-bold text-foreground">Add Travel Insurance</h4>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <ShieldCheck className="h-5 w-5 text-muted-foreground shrink-0" />
+                        <div className="text-left min-w-0">
+                          <h4 className="font-bold text-foreground text-sm">Add Travel Insurance</h4>
                           <p className="text-xs text-muted-foreground">₹500/person - Recommended</p>
                         </div>
                       </div>
-                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 ${includeInsurance ? "bg-accent" : "bg-muted"}`}>
+                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeInsurance ? "bg-accent" : "bg-muted"}`}>
                         <div className={`h-6 w-6 rounded-full bg-background shadow transition-transform ${includeInsurance ? "translate-x-5" : "translate-x-0"}`} />
                       </div>
                     </button>
@@ -368,12 +368,12 @@ const CalculatorPage = () => {
                     <span className="w-1 h-6 bg-accent rounded-full" /> Miscellaneous Budget
                   </h3>
                   <div className="glass-card rounded-xl p-5">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <ShoppingBag className="h-6 w-6 text-accent" />
-                        <h4 className="font-bold text-foreground">Extra Budget (Shopping, Tips, Snacks)</h4>
+                    <div className="flex items-center justify-between mb-4 gap-3">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <ShoppingBag className="h-5 w-5 text-accent shrink-0" />
+                        <h4 className="font-bold text-foreground text-sm truncate">Extra Budget (Shopping, Tips, Snacks)</h4>
                       </div>
-                      <span className="text-sm font-bold text-accent bg-accent/15 px-3 py-1 rounded-lg">{miscPercent}%</span>
+                      <span className="text-sm font-bold text-accent bg-accent/15 px-3 py-1 rounded-lg shrink-0">{miscPercent}%</span>
                     </div>
                     <input
                       type="range"
