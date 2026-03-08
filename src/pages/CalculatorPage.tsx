@@ -73,30 +73,21 @@ const CalculatorPage = () => {
 
   const estimate = useMemo(() => {
     const destCost = selectedDest.reduce((sum, i) => sum + destinations[i].cost, 0);
-    const accommodation = Math.round((destCost * hotelTiers[hotelTier].multiplier * days) / selectedDest.length || 0);
+    const accommodation = Math.round((destCost * hotelTiers[hotelTier].multiplier * days) / (selectedDest.length || 1));
     const meals = mealPlans[mealPlan].cost * days * travelers;
     const transfers = 2000 * travelers;
     const ferry = 1800 * selectedDest.length * travelers;
     const actCost = selectedActivities.reduce((sum, i) => sum + activities[i].cost, 0) * travelers;
     const extCost = selectedExtras.reduce((sum, i) => sum + extras[i].cost, 0) * travelers;
-    const insurance = selectedExtras.includes(0) ? 1000 * travelers : 0;
-    const subtotal = accommodation + meals + transfers + ferry + actCost + extCost;
-    const misc = Math.round(subtotal * 0.08);
+    const flights = includeFlights ? 12000 * travelers : 0;
+    const insurance = includeInsurance ? 500 * travelers : 0;
+    const subtotal = accommodation + meals + transfers + ferry + actCost + extCost + flights + insurance;
+    const misc = Math.round(subtotal * (miscPercent / 100));
     const gst = Math.round((subtotal + misc) * 0.05);
     const total = subtotal + misc + gst;
 
-    return {
-      accommodation,
-      meals,
-      transfers,
-      ferry,
-      activities: actCost,
-      insurance,
-      misc,
-      gst,
-      total,
-    };
-  }, [selectedDest, travelers, days, hotelTier, mealPlan, selectedActivities, selectedExtras]);
+    return { accommodation, meals, transfers, ferry, activities: actCost, flights, insurance, misc, gst, total };
+  }, [selectedDest, travelers, days, hotelTier, mealPlan, selectedActivities, selectedExtras, includeFlights, includeInsurance, miscPercent]);
 
   const breakdown = [
     { label: "Accommodation", value: estimate.accommodation, color: "bg-accent" },
