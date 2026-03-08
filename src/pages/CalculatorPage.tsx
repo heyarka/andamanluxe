@@ -339,7 +339,7 @@ const CalculatorPage = () => {
                           <p className="text-xs text-muted-foreground">Approx. ₹12,000/person round-trip</p>
                         </div>
                       </div>
-                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 ${includeFlights ? "bg-accent" : "bg-muted"}`}>
+                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeFlights ? "bg-accent" : "bg-muted"}`}>
                         <div className={`h-6 w-6 rounded-full bg-background shadow transition-transform ${includeFlights ? "translate-x-5" : "translate-x-0"}`} />
                       </div>
                     </button>
