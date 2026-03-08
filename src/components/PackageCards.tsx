@@ -299,7 +299,21 @@ const PackageCards = ({ tripType, onStartOver }: PackageCardsProps) => {
       </div>
 
       {/* Help Section */}
-      <NeedHelpSection />
+      <div className="glass-card rounded-2xl p-8 text-center">
+        <h3 className="font-display text-xl font-bold text-foreground mb-2">Need Help Deciding?</h3>
+        <p className="text-muted-foreground mb-6">Our travel experts are here to help you choose the perfect package</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button className="rounded-lg bg-accent text-accent-foreground px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all">
+            Talk to an Expert
+          </button>
+          <button
+            onClick={() => navigate("/customize")}
+            className="rounded-lg border border-foreground/10 text-foreground px-8 py-3 text-sm font-semibold hover:bg-muted/50 transition-all"
+          >
+            Customize a Package
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
