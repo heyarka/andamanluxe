@@ -91,14 +91,30 @@ const Book = () => {
             transition={{ duration: 0.4 }}
             className="text-center mb-12"
           >
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
-              Let's Find Your <span className="text-accent italic">Perfect Trip</span>
-            </h1>
-            <p className="text-muted-foreground">
-              {step === 1 && "First, tell us a little about yourself"}
-              {step === 2 && "What kind of trip are you looking for?"}
-              {step === 3 && "Almost there! Fill in your details"}
-            </p>
+            {step === 1 && (
+              <>
+                <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
+                  Let's Find Your <span className="text-accent italic">Perfect Trip</span>
+                </h1>
+                <p className="text-muted-foreground">First, tell us a little about yourself</p>
+              </>
+            )}
+            {step === 2 && (
+              <>
+                <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
+                  Who Are You <span className="text-accent italic">Traveling With?</span>
+                </h1>
+                <p className="text-muted-foreground">We'll curate the perfect experience for your group</p>
+              </>
+            )}
+            {step === 3 && (
+              <>
+                <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3">
+                  Let's Find Your <span className="text-accent italic">Perfect Trip</span>
+                </h1>
+                <p className="text-muted-foreground">Almost there! Fill in your details</p>
+              </>
+            )}
           </motion.div>
 
           <AnimatePresence mode="wait">
