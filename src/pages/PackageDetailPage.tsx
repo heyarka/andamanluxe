@@ -332,7 +332,7 @@ const PackageDetailPage = () => {
             >
               Back
             </button>
-            <button onClick={() => navigate("/book")} className="rounded-lg bg-accent text-accent-foreground px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all">
+            <button onClick={() => setShowBooking(true)} className="rounded-lg bg-accent text-accent-foreground px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all">
               Book Now
             </button>
           </div>
