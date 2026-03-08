@@ -462,7 +462,9 @@ const CalculatorPage = () => {
         </div>
       </section>
 
+      <SectionDivider />
       <ReviewsSection />
+      <SectionDivider />
       <Footer />
     </div>
   );
