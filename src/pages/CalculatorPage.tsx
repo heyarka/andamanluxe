@@ -368,12 +368,12 @@ const CalculatorPage = () => {
                     <span className="w-1 h-6 bg-accent rounded-full" /> Miscellaneous Budget
                   </h3>
                   <div className="glass-card rounded-xl p-5">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <ShoppingBag className="h-6 w-6 text-accent" />
-                        <h4 className="font-bold text-foreground">Extra Budget (Shopping, Tips, Snacks)</h4>
+                    <div className="flex items-center justify-between mb-4 gap-3">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <ShoppingBag className="h-5 w-5 text-accent shrink-0" />
+                        <h4 className="font-bold text-foreground text-sm truncate">Extra Budget (Shopping, Tips, Snacks)</h4>
                       </div>
-                      <span className="text-sm font-bold text-accent bg-accent/15 px-3 py-1 rounded-lg">{miscPercent}%</span>
+                      <span className="text-sm font-bold text-accent bg-accent/15 px-3 py-1 rounded-lg shrink-0">{miscPercent}%</span>
                     </div>
                     <input
                       type="range"
