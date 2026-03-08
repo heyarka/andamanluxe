@@ -208,6 +208,7 @@ function getPackages(tripType: string) {
 
 const PackageCards = ({ tripType, onStartOver }: PackageCardsProps) => {
   const packages = getPackages(tripType);
+  const navigate = useNavigate();
 
   return (
     <div>
