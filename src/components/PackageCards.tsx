@@ -56,7 +56,7 @@ const PackageCards = ({ tripType, profile = "Indian Resident", onStartOver }: Pa
   const packages = getPackages(tripType);
   const navigate = useNavigate();
   const [selectedPkg, setSelectedPkg] = useState<typeof packages[0] | null>(null);
-  const isInternational = profile === "International Traveler";
+  const [focusedIdx, setFocusedIdx] = useState<number>(packages.findIndex(p => p.recommended) ?? 0);
   const getPrice = (pkg: typeof packages[0]) => isInternational ? pkg.priceUSD : pkg.priceINR;
 
   const handleBookClick = (pkg: typeof packages[0]) => { setSelectedPkg(pkg); };
