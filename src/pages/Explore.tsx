@@ -15,6 +15,7 @@ const categories = [
     description: "Discover pristine islands, hidden beaches, and natural wonders across the Andaman archipelago",
     image: destinationsImg,
     items: ["Ross & Smith Islands", "Havelock Island", "Neil Island", "Cellular Jail"],
+    link: "/destinations",
   },
   {
     icon: Waves,
@@ -22,6 +23,7 @@ const categories = [
     description: "Experience thrilling adventures with scuba diving, snorkeling, jet skiing, and more",
     image: waterSportsImg,
     items: ["Scuba Diving", "Snorkeling", "Sea Walking", "Parasailing"],
+    link: "/water-sports",
   },
   {
     icon: Ship,
@@ -29,6 +31,7 @@ const categories = [
     description: "Explore inter-island ferry schedules, routes, pricing, and booking options",
     image: ferryImg,
     items: ["Makruzz Cruises", "Green Ocean", "Government Ferries", "Private Charters"],
+    link: "/ferry-services",
   },
 ];
 
