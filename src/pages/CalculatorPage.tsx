@@ -129,7 +129,7 @@ const CalculatorPage = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8">
             {/* Left: Tabs & Content */}
-            <div>
+            <div className="min-w-0">
               {/* Tabs */}
               <div className="grid grid-cols-4 gap-1 bg-muted/30 rounded-xl p-1 mb-8">
                 {tabs.map((tab, i) => (
