@@ -273,7 +273,13 @@ const PackageDetailPage = () => {
                   </div>
                 </div>
               </div>
-              <button className="mt-6 w-full rounded-lg border border-foreground/10 py-3 text-sm font-semibold text-accent hover:bg-accent/5 transition-all">
+              <button
+                onClick={() => {
+                  const message = `Hi! I'd like to chat about the "${pkg.name}" package (${pkg.duration}, ${pkg.price}/person). Can you help me?`;
+                  window.location.href = `https://wa.me/918637327297?text=${encodeURIComponent(message)}`;
+                }}
+                className="mt-6 w-full rounded-lg border border-foreground/10 py-3 text-sm font-semibold text-accent hover:bg-accent/5 transition-all"
+              >
                 Chat with Expert
               </button>
             </motion.div>
