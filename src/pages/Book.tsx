@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, Plane, Home, Users, Heart, Palmtree, Compass, Calendar, User, Mail, Phone, MessageSquare, ArrowRight, ArrowLeft, Check } from "lucide-react";
+import { Globe, Plane, Home, Users, Heart, Smile, Coffee, Calendar, User, Mail, Phone, MessageSquare, ArrowRight, ArrowLeft, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
