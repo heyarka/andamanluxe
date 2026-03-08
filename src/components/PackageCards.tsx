@@ -11,50 +11,9 @@ interface PackageCardsProps {
 }
 
 const honeymoonPackages = [
-  {
-    name: "Romantic Bliss",
-    duration: "5D/4N",
-    islands: "2 Islands",
-    price: "$2,899",
-    image: honeymoon1,
-    recommended: false,
-    features: [
-      "Private beach villa with ocean view",
-      "Candlelit dinner on the beach",
-      "Couples spa & massage",
-      "Sunset cruise for two",
-    ],
-  },
-  {
-    name: "Paradise Romance",
-    duration: "7D/6N",
-    islands: "3 Islands",
-    price: "$4,999",
-    image: honeymoon2,
-    recommended: true,
-    features: [
-      "Luxury overwater bungalow",
-      "Private yacht day tour",
-      "Professional couple photoshoot",
-      "Premium dining experiences",
-      "Scuba diving for two",
-    ],
-  },
-  {
-    name: "Ultimate Escape",
-    duration: "10D/9N",
-    islands: "4 Islands",
-    price: "$7,999",
-    image: honeymoon3,
-    recommended: false,
-    features: [
-      "Presidential villa suite",
-      "Helicopter island hopping",
-      "Private chef & butler",
-      "Unlimited spa treatments",
-      "Exclusive beach access",
-    ],
-  },
+  { slug: "romantic-bliss", name: "Romantic Bliss", duration: "5D/4N", islands: "2 Islands", price: "$2,899", image: honeymoon1, recommended: false, features: ["Private beach villa with ocean view", "Candlelit dinner on the beach", "Couples spa & massage", "Sunset cruise for two"] },
+  { slug: "paradise-romance", name: "Paradise Romance", duration: "7D/6N", islands: "3 Islands", price: "$4,999", image: honeymoon2, recommended: true, features: ["Luxury overwater bungalow", "Private yacht day tour", "Professional couple photoshoot", "Premium dining experiences", "Scuba diving for two"] },
+  { slug: "ultimate-escape", name: "Ultimate Escape", duration: "10D/9N", islands: "4 Islands", price: "$7,999", image: honeymoon3, recommended: false, features: ["Presidential villa suite", "Helicopter island hopping", "Private chef & butler", "Unlimited spa treatments", "Exclusive beach access"] },
 ];
 
 const familyPackages = [
