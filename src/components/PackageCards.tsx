@@ -11,191 +11,27 @@ interface PackageCardsProps {
 }
 
 const honeymoonPackages = [
-  {
-    name: "Romantic Bliss",
-    duration: "5D/4N",
-    islands: "2 Islands",
-    price: "$2,899",
-    image: honeymoon1,
-    recommended: false,
-    features: [
-      "Private beach villa with ocean view",
-      "Candlelit dinner on the beach",
-      "Couples spa & massage",
-      "Sunset cruise for two",
-    ],
-  },
-  {
-    name: "Paradise Romance",
-    duration: "7D/6N",
-    islands: "3 Islands",
-    price: "$4,999",
-    image: honeymoon2,
-    recommended: true,
-    features: [
-      "Luxury overwater bungalow",
-      "Private yacht day tour",
-      "Professional couple photoshoot",
-      "Premium dining experiences",
-      "Scuba diving for two",
-    ],
-  },
-  {
-    name: "Ultimate Escape",
-    duration: "10D/9N",
-    islands: "4 Islands",
-    price: "$7,999",
-    image: honeymoon3,
-    recommended: false,
-    features: [
-      "Presidential villa suite",
-      "Helicopter island hopping",
-      "Private chef & butler",
-      "Unlimited spa treatments",
-      "Exclusive beach access",
-    ],
-  },
+  { slug: "romantic-bliss", name: "Romantic Bliss", duration: "5D/4N", islands: "2 Islands", price: "$2,899", image: honeymoon1, recommended: false, features: ["Private beach villa with ocean view", "Candlelit dinner on the beach", "Couples spa & massage", "Sunset cruise for two"] },
+  { slug: "paradise-romance", name: "Paradise Romance", duration: "7D/6N", islands: "3 Islands", price: "$4,999", image: honeymoon2, recommended: true, features: ["Luxury overwater bungalow", "Private yacht day tour", "Professional couple photoshoot", "Premium dining experiences", "Scuba diving for two"] },
+  { slug: "ultimate-escape", name: "Ultimate Escape", duration: "10D/9N", islands: "4 Islands", price: "$7,999", image: honeymoon3, recommended: false, features: ["Presidential villa suite", "Helicopter island hopping", "Private chef & butler", "Unlimited spa treatments", "Exclusive beach access"] },
 ];
 
 const familyPackages = [
-  {
-    name: "Family Fun",
-    duration: "5D/4N",
-    islands: "2 Islands",
-    price: "$1,999",
-    image: honeymoon1,
-    recommended: false,
-    features: [
-      "Family-friendly resort",
-      "Kids activity programs",
-      "Glass-bottom boat ride",
-      "Beach picnic experience",
-    ],
-  },
-  {
-    name: "Island Explorer",
-    duration: "7D/6N",
-    islands: "3 Islands",
-    price: "$3,499",
-    image: honeymoon2,
-    recommended: true,
-    features: [
-      "Multi-island hopping tour",
-      "Snorkeling for all ages",
-      "Cultural village visits",
-      "Mangrove kayaking",
-      "Underwater sea walk",
-    ],
-  },
-  {
-    name: "Grand Family",
-    duration: "10D/9N",
-    islands: "4 Islands",
-    price: "$5,999",
-    image: honeymoon3,
-    recommended: false,
-    features: [
-      "Premium family suite",
-      "Private island day trip",
-      "Adventure sports package",
-      "Photography session",
-      "All-inclusive dining",
-    ],
-  },
+  { slug: "family-fun", name: "Family Fun", duration: "5D/4N", islands: "2 Islands", price: "$1,999", image: honeymoon1, recommended: false, features: ["Family-friendly resort", "Kids activity programs", "Glass-bottom boat ride", "Beach picnic experience"] },
+  { slug: "island-explorer", name: "Island Explorer", duration: "7D/6N", islands: "3 Islands", price: "$3,499", image: honeymoon2, recommended: true, features: ["Multi-island hopping tour", "Snorkeling for all ages", "Cultural village visits", "Mangrove kayaking", "Underwater sea walk"] },
+  { slug: "grand-family", name: "Grand Family", duration: "10D/9N", islands: "4 Islands", price: "$5,999", image: honeymoon3, recommended: false, features: ["Premium family suite", "Private island day trip", "Adventure sports package", "Photography session", "All-inclusive dining"] },
 ];
 
 const adventurePackages = [
-  {
-    name: "Thrill Seeker",
-    duration: "4D/3N",
-    islands: "2 Islands",
-    price: "$1,499",
-    image: honeymoon1,
-    recommended: false,
-    features: [
-      "Scuba diving sessions",
-      "Jet ski & parasailing",
-      "Night beach bonfire",
-      "Trekking expedition",
-    ],
-  },
-  {
-    name: "Epic Adventure",
-    duration: "6D/5N",
-    islands: "3 Islands",
-    price: "$2,999",
-    image: honeymoon2,
-    recommended: true,
-    features: [
-      "Deep sea diving certification",
-      "Island camping experience",
-      "Kayaking & snorkeling",
-      "Fishing trip",
-      "Volcano mud trek",
-    ],
-  },
-  {
-    name: "Ultimate Explorer",
-    duration: "9D/8N",
-    islands: "5 Islands",
-    price: "$5,499",
-    image: honeymoon3,
-    recommended: false,
-    features: [
-      "Helicopter tour",
-      "Private speedboat",
-      "Underwater photography",
-      "Jungle survival camp",
-      "Full adventure bundle",
-    ],
-  },
+  { slug: "thrill-seeker", name: "Thrill Seeker", duration: "4D/3N", islands: "2 Islands", price: "$1,499", image: honeymoon1, recommended: false, features: ["Scuba diving sessions", "Jet ski & parasailing", "Night beach bonfire", "Trekking expedition"] },
+  { slug: "epic-adventure", name: "Epic Adventure", duration: "6D/5N", islands: "3 Islands", price: "$2,999", image: honeymoon2, recommended: true, features: ["Deep sea diving certification", "Island camping experience", "Kayaking & snorkeling", "Fishing trip", "Volcano mud trek"] },
+  { slug: "ultimate-explorer", name: "Ultimate Explorer", duration: "9D/8N", islands: "5 Islands", price: "$5,499", image: honeymoon3, recommended: false, features: ["Helicopter tour", "Private speedboat", "Underwater photography", "Jungle survival camp", "Full adventure bundle"] },
 ];
 
 const seniorPackages = [
-  {
-    name: "Serene Getaway",
-    duration: "5D/4N",
-    islands: "2 Islands",
-    price: "$2,199",
-    image: honeymoon1,
-    recommended: false,
-    features: [
-      "Comfortable resort stay",
-      "Guided heritage walks",
-      "Scenic boat cruise",
-      "Wellness spa sessions",
-    ],
-  },
-  {
-    name: "Golden Retreat",
-    duration: "7D/6N",
-    islands: "3 Islands",
-    price: "$3,799",
-    image: honeymoon2,
-    recommended: true,
-    features: [
-      "Premium accessible rooms",
-      "Private car transfers",
-      "Cultural excursions",
-      "Gourmet dining",
-      "Sunset photography tour",
-    ],
-  },
-  {
-    name: "Platinum Leisure",
-    duration: "10D/9N",
-    islands: "4 Islands",
-    price: "$6,499",
-    image: honeymoon3,
-    recommended: false,
-    features: [
-      "Luxury suite with sea view",
-      "Personal travel assistant",
-      "Daily wellness program",
-      "Exclusive island tour",
-      "All meals included",
-    ],
-  },
+  { slug: "serene-getaway", name: "Serene Getaway", duration: "5D/4N", islands: "2 Islands", price: "$2,199", image: honeymoon1, recommended: false, features: ["Comfortable resort stay", "Guided heritage walks", "Scenic boat cruise", "Wellness spa sessions"] },
+  { slug: "golden-retreat", name: "Golden Retreat", duration: "7D/6N", islands: "3 Islands", price: "$3,799", image: honeymoon2, recommended: true, features: ["Premium accessible rooms", "Private car transfers", "Cultural excursions", "Gourmet dining", "Sunset photography tour"] },
+  { slug: "platinum-leisure", name: "Platinum Leisure", duration: "10D/9N", islands: "4 Islands", price: "$6,499", image: honeymoon3, recommended: false, features: ["Luxury suite with sea view", "Personal travel assistant", "Daily wellness program", "Exclusive island tour", "All meals included"] },
 ];
 
 function getPackages(tripType: string) {
@@ -290,7 +126,10 @@ const PackageCards = ({ tripType, onStartOver }: PackageCardsProps) => {
               >
                 Book This Package
               </button>
-              <button className="w-full rounded-lg py-3 text-sm font-semibold border border-foreground/10 text-foreground hover:bg-muted/50 transition-all">
+              <button
+                onClick={() => navigate(`/package/${pkg.slug}`)}
+                className="w-full rounded-lg py-3 text-sm font-semibold border border-foreground/10 text-foreground hover:bg-muted/50 transition-all"
+              >
                 View Details
               </button>
             </div>

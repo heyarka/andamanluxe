@@ -10,6 +10,7 @@ import WaterSports from "./pages/WaterSports";
 import FerryServices from "./pages/FerryServices";
 import Book from "./pages/Book";
 import CustomizePackage from "./pages/CustomizePackage";
+import PackageDetailPage from "./pages/PackageDetailPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/ferry-services" element={<FerryServices />} />
           <Route path="/book" element={<Book />} />
           <Route path="/customize" element={<CustomizePackage />} />
+          <Route path="/package/:slug" element={<PackageDetailPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
