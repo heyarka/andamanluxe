@@ -11,6 +11,7 @@ import FerryServices from "./pages/FerryServices";
 import Book from "./pages/Book";
 import CustomizePackage from "./pages/CustomizePackage";
 import PackageDetailPage from "./pages/PackageDetailPage";
+import WhyChooseUs from "./pages/WhyChooseUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
