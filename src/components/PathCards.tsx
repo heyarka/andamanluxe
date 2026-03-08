@@ -57,7 +57,7 @@ const PathCards = () => {
           <h3 className="font-display text-xs md:text-2xl font-bold text-foreground mb-1 md:mb-3">
             Ready to Book?
           </h3>
-          <p className="text-muted-foreground text-[9px] md:text-sm leading-relaxed mb-2 md:mb-8 line-clamp-3 md:line-clamp-none">
+          <p className="text-muted-foreground text-sm md:text-sm leading-relaxed mb-2 md:mb-8 line-clamp-3 md:line-clamp-none">
             Plan your perfect getaway with our trip finder.
           </p>
           <div className="flex flex-col gap-1 md:gap-3 w-full text-left mb-2 md:mb-8">
