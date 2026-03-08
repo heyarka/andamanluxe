@@ -110,33 +110,33 @@ const CalculatorPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-28 pb-8 px-6 text-center">
+      <section className="pt-20 md:pt-28 pb-4 md:pb-8 px-4 md:px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/15 mx-auto mb-4">
-            <Calculator className="h-8 w-8 text-accent" />
+          <div className="flex h-10 w-10 md:h-16 md:w-16 items-center justify-center rounded-full bg-accent/15 mx-auto mb-2 md:mb-4">
+            <Calculator className="h-5 w-5 md:h-8 md:w-8 text-accent" />
           </div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-2">
+          <h1 className="font-display text-xl md:text-5xl font-bold text-foreground mb-1 md:mb-2">
             Plan Your <span className="text-gradient-hero italic">Dream Escape</span>
           </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Calculate your perfect Andaman getaway with our interactive cost estimator. Customize every detail and get instant pricing for 2025-2026.
+          <p className="text-[10px] md:text-base text-muted-foreground max-w-xl mx-auto">
+            Calculate your perfect Andaman getaway with our interactive cost estimator.
           </p>
         </motion.div>
       </section>
 
       {/* Main Content */}
-      <section className="px-4 sm:px-6 pb-24 overflow-x-hidden">
+      <section className="px-3 md:px-6 pb-12 md:pb-24 overflow-x-hidden">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-4 md:gap-8">
             {/* Left: Tabs & Content */}
             <div className="min-w-0">
               {/* Tabs */}
-              <div className="grid grid-cols-4 gap-1 bg-muted/30 rounded-xl p-1 mb-8">
+              <div className="grid grid-cols-4 gap-1 bg-muted/30 rounded-lg md:rounded-xl p-1 mb-4 md:mb-8">
                 {tabs.map((tab, i) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(i)}
-                    className={`rounded-lg py-3 text-sm font-semibold transition-all ${
+                    className={`rounded-md md:rounded-lg py-2 md:py-3 text-[10px] md:text-sm font-semibold transition-all ${
                       activeTab === i
                         ? "bg-accent text-accent-foreground"
                         : "text-muted-foreground hover:text-foreground"
@@ -150,63 +150,61 @@ const CalculatorPage = () => {
               {/* Tab: Trip */}
               {activeTab === 0 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-accent rounded-full" /> Where do you want to go?
+                  <h3 className="font-display text-sm md:text-xl font-bold text-accent mb-3 md:mb-6 flex items-center gap-2">
+                    <span className="w-1 h-4 md:h-6 bg-accent rounded-full" /> Where do you want to go?
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                  <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-4 mb-4 md:mb-8">
                     {destinations.map((d, i) => (
                       <button
                         key={d.name}
                         onClick={() => toggleDest(i)}
-                        className={`rounded-xl overflow-hidden border transition-all text-left ${
+                        className={`rounded-lg md:rounded-xl overflow-hidden border transition-all text-left ${
                           selectedDest.includes(i)
                             ? "border-accent bg-accent/5"
                             : "border-foreground/10 hover:border-accent/30"
                         }`}
                       >
-                        <div className="h-28 overflow-hidden relative">
+                        <div className="h-16 md:h-28 overflow-hidden relative">
                           <img src={d.image} alt={d.name} className="w-full h-full object-cover" />
                           {selectedDest.includes(i) && (
-                            <div className="absolute top-2 right-2 h-6 w-6 bg-accent rounded-full flex items-center justify-center">
-                              <span className="text-accent-foreground text-xs font-bold">✓</span>
+                            <div className="absolute top-1 right-1 md:top-2 md:right-2 h-4 w-4 md:h-6 md:w-6 bg-accent rounded-full flex items-center justify-center">
+                              <span className="text-accent-foreground text-[8px] md:text-xs font-bold">✓</span>
                             </div>
                           )}
                         </div>
-                        <div className="p-3">
-                          <h4 className="font-bold text-foreground text-sm">{d.name}</h4>
-                          <p className="text-xs text-muted-foreground">{d.desc}</p>
-                          <p className="text-xs text-accent font-semibold mt-1">₹{d.cost.toLocaleString()}/day</p>
+                        <div className="p-1.5 md:p-3">
+                          <h4 className="font-bold text-foreground text-[10px] md:text-sm">{d.name}</h4>
+                          <p className="text-[8px] md:text-xs text-muted-foreground">{d.desc}</p>
+                          <p className="text-[8px] md:text-xs text-accent font-semibold mt-0.5">₹{d.cost.toLocaleString()}/day</p>
                         </div>
                       </button>
                     ))}
                   </div>
 
                   {/* Travelers & Days */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="glass-card rounded-xl p-5">
-                      <p className="text-sm text-muted-foreground mb-3">How many travelers?</p>
-                      <div className="flex items-center gap-3">
-                        <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
-                          <Minus className="h-4 w-4" />
+                  <div className="grid grid-cols-2 gap-2 md:gap-4">
+                    <div className="glass-card rounded-lg md:rounded-xl p-3 md:p-5">
+                      <p className="text-[10px] md:text-sm text-muted-foreground mb-2 md:mb-3">How many travelers?</p>
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="h-7 w-7 md:h-10 md:w-10 rounded-md md:rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
+                          <Minus className="h-3 w-3 md:h-4 md:w-4" />
                         </button>
-                        <span className="text-2xl font-bold text-accent w-8 text-center">{travelers}</span>
-                        <button onClick={() => setTravelers(Math.min(20, travelers + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
-                          <Plus className="h-4 w-4" />
+                        <span className="text-lg md:text-2xl font-bold text-accent w-6 md:w-8 text-center">{travelers}</span>
+                        <button onClick={() => setTravelers(Math.min(20, travelers + 1))} className="h-7 w-7 md:h-10 md:w-10 rounded-md md:rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
+                          <Plus className="h-3 w-3 md:h-4 md:w-4" />
                         </button>
-                        <span className="text-sm text-muted-foreground">persons</span>
                       </div>
                     </div>
-                    <div className="glass-card rounded-xl p-5">
-                      <p className="text-sm text-muted-foreground mb-3">How long is your trip?</p>
-                      <div className="flex items-center gap-3">
-                        <button onClick={() => setDays(Math.max(2, days - 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
-                          <Minus className="h-4 w-4" />
+                    <div className="glass-card rounded-lg md:rounded-xl p-3 md:p-5">
+                      <p className="text-[10px] md:text-sm text-muted-foreground mb-2 md:mb-3">How long is your trip?</p>
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <button onClick={() => setDays(Math.max(2, days - 1))} className="h-7 w-7 md:h-10 md:w-10 rounded-md md:rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
+                          <Minus className="h-3 w-3 md:h-4 md:w-4" />
                         </button>
-                        <span className="text-2xl font-bold text-accent w-8 text-center">{days}</span>
-                        <button onClick={() => setDays(Math.min(21, days + 1))} className="h-10 w-10 rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
-                          <Plus className="h-4 w-4" />
+                        <span className="text-lg md:text-2xl font-bold text-accent w-6 md:w-8 text-center">{days}</span>
+                        <button onClick={() => setDays(Math.min(21, days + 1))} className="h-7 w-7 md:h-10 md:w-10 rounded-md md:rounded-lg border border-foreground/10 flex items-center justify-center hover:bg-muted/50 shrink-0">
+                          <Plus className="h-3 w-3 md:h-4 md:w-4" />
                         </button>
-                        <span className="text-sm text-muted-foreground">days</span>
                       </div>
                     </div>
                   </div>
@@ -216,41 +214,41 @@ const CalculatorPage = () => {
               {/* Tab: Stay */}
               {activeTab === 1 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-accent rounded-full" /> Choose your accommodation
+                  <h3 className="font-display text-sm md:text-xl font-bold text-accent mb-3 md:mb-6 flex items-center gap-2">
+                    <span className="w-1 h-4 md:h-6 bg-accent rounded-full" /> Choose your accommodation
                   </h3>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-8">
                     {hotelTiers.map((h, i) => (
                       <button
                         key={h.name}
                         onClick={() => setHotelTier(i)}
-                        className={`glass-card rounded-xl p-5 text-left transition-all ${
+                        className={`glass-card rounded-lg md:rounded-xl p-3 md:p-5 text-left transition-all ${
                           hotelTier === i ? "border-accent bg-accent/5" : "hover:border-accent/30"
                         }`}
                       >
-                        <Hotel className="h-6 w-6 text-accent mb-2" />
-                        <h4 className="font-bold text-foreground">{h.name}</h4>
-                        <p className="text-xs text-muted-foreground">{h.desc}</p>
+                        <Hotel className="h-4 w-4 md:h-6 md:w-6 text-accent mb-1 md:mb-2" />
+                        <h4 className="font-bold text-foreground text-xs md:text-base">{h.name}</h4>
+                        <p className="text-[10px] md:text-xs text-muted-foreground">{h.desc}</p>
                       </button>
                     ))}
                   </div>
 
-                  <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-accent rounded-full" /> Select meal plan
+                  <h3 className="font-display text-sm md:text-xl font-bold text-accent mb-3 md:mb-6 flex items-center gap-2">
+                    <span className="w-1 h-4 md:h-6 bg-accent rounded-full" /> Select meal plan
                   </h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2 md:gap-4">
                     {mealPlans.map((m, i) => (
                       <button
                         key={m.name}
                         onClick={() => setMealPlan(i)}
-                        className={`glass-card rounded-xl p-5 text-left transition-all ${
+                        className={`glass-card rounded-lg md:rounded-xl p-3 md:p-5 text-left transition-all ${
                           mealPlan === i ? "border-accent bg-accent/5" : "hover:border-accent/30"
                         }`}
                       >
-                        <UtensilsCrossed className="h-6 w-6 text-accent mb-2" />
-                        <h4 className="font-bold text-foreground">{m.name}</h4>
-                        <p className="text-xs text-muted-foreground">{m.desc}</p>
-                        {m.cost > 0 && <p className="text-xs text-accent font-semibold mt-1">₹{m.cost}/person/day</p>}
+                        <UtensilsCrossed className="h-4 w-4 md:h-6 md:w-6 text-accent mb-1 md:mb-2" />
+                        <h4 className="font-bold text-foreground text-xs md:text-base">{m.name}</h4>
+                        <p className="text-[10px] md:text-xs text-muted-foreground">{m.desc}</p>
+                        {m.cost > 0 && <p className="text-[10px] md:text-xs text-accent font-semibold mt-0.5">₹{m.cost}/person/day</p>}
                       </button>
                     ))}
                   </div>
@@ -260,36 +258,36 @@ const CalculatorPage = () => {
               {/* Tab: Fun */}
               {activeTab === 2 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-accent rounded-full" /> Pick your activities
+                  <h3 className="font-display text-sm md:text-xl font-bold text-accent mb-3 md:mb-6 flex items-center gap-2">
+                    <span className="w-1 h-4 md:h-6 bg-accent rounded-full" /> Pick your activities
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2 md:gap-4">
                     {activities.map((a, i) => (
                       <button
                         key={a.name}
                         onClick={() => toggleActivity(i)}
-                        className={`glass-card rounded-xl p-4 flex items-center gap-3 text-left transition-all ${
+                        className={`glass-card rounded-lg md:rounded-xl p-2.5 md:p-4 flex items-center gap-2 md:gap-3 text-left transition-all ${
                           selectedActivities.includes(i) ? "border-accent bg-accent/5" : "hover:border-accent/30"
                         }`}
                       >
-                        <div className={`flex h-10 w-10 items-center justify-center rounded-xl shrink-0 ${
+                        <div className={`flex h-7 w-7 md:h-10 md:w-10 items-center justify-center rounded-lg md:rounded-xl shrink-0 ${
                           selectedActivities.includes(i) ? "bg-accent/20" : "bg-muted/50"
                         }`}>
-                          <a.icon className={`h-5 w-5 ${selectedActivities.includes(i) ? "text-accent" : "text-muted-foreground"}`} />
+                          <a.icon className={`h-3.5 w-3.5 md:h-5 md:w-5 ${selectedActivities.includes(i) ? "text-accent" : "text-muted-foreground"}`} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-1.5 flex-wrap">
-                            <h4 className="font-bold text-foreground text-sm">{a.name}</h4>
+                          <div className="flex items-center gap-1 flex-wrap">
+                            <h4 className="font-bold text-foreground text-[10px] md:text-sm">{a.name}</h4>
                             {a.popular && (
-                              <span className="text-[10px] font-bold bg-accent text-accent-foreground px-1.5 py-0.5 rounded-full flex items-center gap-0.5 shrink-0">
-                                <Star className="h-2.5 w-2.5" fill="currentColor" /> Popular
+                              <span className="text-[7px] md:text-[10px] font-bold bg-accent text-accent-foreground px-1 md:px-1.5 py-0.5 rounded-full flex items-center gap-0.5 shrink-0">
+                                <Star className="h-2 w-2 md:h-2.5 md:w-2.5" fill="currentColor" /> Popular
                               </span>
                             )}
                           </div>
-                          <p className="text-xs text-accent font-semibold mt-0.5">+₹{a.cost.toLocaleString()}/person</p>
+                          <p className="text-[9px] md:text-xs text-accent font-semibold mt-0.5">+₹{a.cost.toLocaleString()}</p>
                         </div>
                         {selectedActivities.includes(i) && (
-                          <CheckCircle2 className="h-5 w-5 text-accent shrink-0" />
+                          <CheckCircle2 className="h-3.5 w-3.5 md:h-5 md:w-5 text-accent shrink-0" />
                         )}
                       </button>
                     ))}
@@ -301,79 +299,79 @@ const CalculatorPage = () => {
               {activeTab === 3 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                   {/* Add-ons */}
-                  <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-accent rounded-full" /> Add-ons & extras
+                  <h3 className="font-display text-sm md:text-xl font-bold text-accent mb-3 md:mb-6 flex items-center gap-2">
+                    <span className="w-1 h-4 md:h-6 bg-accent rounded-full" /> Add-ons & extras
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                  <div className="grid grid-cols-2 gap-2 md:gap-4 mb-6 md:mb-10">
                     {extras.map((e, i) => (
                       <button
                         key={e.name}
                         onClick={() => toggleExtra(i)}
-                        className={`glass-card rounded-xl p-5 text-left transition-all ${
+                        className={`glass-card rounded-lg md:rounded-xl p-3 md:p-5 text-left transition-all ${
                           selectedExtras.includes(i) ? "border-accent bg-accent/5" : "hover:border-accent/30"
                         }`}
                       >
-                        <ShieldCheck className="h-6 w-6 text-accent mb-2" />
-                        <h4 className="font-bold text-foreground">{e.name}</h4>
-                        <p className="text-xs text-muted-foreground">{e.desc}</p>
-                        <p className="text-xs text-accent font-semibold mt-1">₹{e.cost.toLocaleString()}/person</p>
+                        <ShieldCheck className="h-4 w-4 md:h-6 md:w-6 text-accent mb-1 md:mb-2" />
+                        <h4 className="font-bold text-foreground text-xs md:text-base">{e.name}</h4>
+                        <p className="text-[10px] md:text-xs text-muted-foreground">{e.desc}</p>
+                        <p className="text-[10px] md:text-xs text-accent font-semibold mt-0.5">₹{e.cost.toLocaleString()}/person</p>
                       </button>
                     ))}
                   </div>
 
                   {/* Travel Essentials */}
-                  <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-accent rounded-full" /> Travel Essentials
+                  <h3 className="font-display text-sm md:text-xl font-bold text-accent mb-3 md:mb-6 flex items-center gap-2">
+                    <span className="w-1 h-4 md:h-6 bg-accent rounded-full" /> Travel Essentials
                   </h3>
-                  <div className="space-y-4 mb-10">
+                  <div className="space-y-2 md:space-y-4 mb-6 md:mb-10">
                     <button
                       onClick={() => setIncludeFlights(!includeFlights)}
-                      className={`w-full glass-card rounded-xl p-5 flex items-center justify-between transition-all ${
+                      className={`w-full glass-card rounded-lg md:rounded-xl p-3 md:p-5 flex items-center justify-between transition-all ${
                         includeFlights ? "border-accent bg-accent/5" : "hover:border-accent/30"
                       }`}
                     >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <Plane className="h-5 w-5 text-muted-foreground shrink-0" />
+                      <div className="flex items-center gap-2 md:gap-3 min-w-0">
+                        <Plane className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground shrink-0" />
                         <div className="text-left min-w-0">
-                          <h4 className="font-bold text-foreground text-sm">Include Flight Estimates</h4>
-                          <p className="text-xs text-muted-foreground">Approx. ₹12,000/person round-trip</p>
+                          <h4 className="font-bold text-foreground text-[10px] md:text-sm">Include Flight Estimates</h4>
+                          <p className="text-[9px] md:text-xs text-muted-foreground">Approx. ₹12,000/person round-trip</p>
                         </div>
                       </div>
-                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeFlights ? "bg-accent" : "bg-muted"}`}>
-                        <div className={`h-6 w-6 rounded-full bg-background shadow transition-transform ${includeFlights ? "translate-x-5" : "translate-x-0"}`} />
+                      <div className={`h-5 w-9 md:h-7 md:w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeFlights ? "bg-accent" : "bg-muted"}`}>
+                        <div className={`h-4 w-4 md:h-6 md:w-6 rounded-full bg-background shadow transition-transform ${includeFlights ? "translate-x-4 md:translate-x-5" : "translate-x-0"}`} />
                       </div>
                     </button>
 
                     <button
                       onClick={() => setIncludeInsurance(!includeInsurance)}
-                      className={`w-full glass-card rounded-xl p-5 flex items-center justify-between transition-all ${
+                      className={`w-full glass-card rounded-lg md:rounded-xl p-3 md:p-5 flex items-center justify-between transition-all ${
                         includeInsurance ? "border-accent bg-accent/5" : "hover:border-accent/30"
                       }`}
                     >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <ShieldCheck className="h-5 w-5 text-muted-foreground shrink-0" />
+                      <div className="flex items-center gap-2 md:gap-3 min-w-0">
+                        <ShieldCheck className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground shrink-0" />
                         <div className="text-left min-w-0">
-                          <h4 className="font-bold text-foreground text-sm">Add Travel Insurance</h4>
-                          <p className="text-xs text-muted-foreground">₹500/person - Recommended</p>
+                          <h4 className="font-bold text-foreground text-[10px] md:text-sm">Add Travel Insurance</h4>
+                          <p className="text-[9px] md:text-xs text-muted-foreground">₹500/person - Recommended</p>
                         </div>
                       </div>
-                      <div className={`h-7 w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeInsurance ? "bg-accent" : "bg-muted"}`}>
-                        <div className={`h-6 w-6 rounded-full bg-background shadow transition-transform ${includeInsurance ? "translate-x-5" : "translate-x-0"}`} />
+                      <div className={`h-5 w-9 md:h-7 md:w-12 rounded-full transition-all flex items-center px-0.5 shrink-0 ${includeInsurance ? "bg-accent" : "bg-muted"}`}>
+                        <div className={`h-4 w-4 md:h-6 md:w-6 rounded-full bg-background shadow transition-transform ${includeInsurance ? "translate-x-4 md:translate-x-5" : "translate-x-0"}`} />
                       </div>
                     </button>
                   </div>
 
                   {/* Miscellaneous Budget */}
-                  <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-accent rounded-full" /> Miscellaneous Budget
+                  <h3 className="font-display text-sm md:text-xl font-bold text-accent mb-3 md:mb-6 flex items-center gap-2">
+                    <span className="w-1 h-4 md:h-6 bg-accent rounded-full" /> Miscellaneous Budget
                   </h3>
-                  <div className="glass-card rounded-xl p-5">
-                    <div className="flex items-center justify-between mb-4 gap-3">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <ShoppingBag className="h-5 w-5 text-accent shrink-0" />
-                        <h4 className="font-bold text-foreground text-sm truncate">Extra Budget (Shopping, Tips, Snacks)</h4>
+                  <div className="glass-card rounded-lg md:rounded-xl p-3 md:p-5">
+                    <div className="flex items-center justify-between mb-2 md:mb-4 gap-2">
+                      <div className="flex items-center gap-1.5 md:gap-2 min-w-0">
+                        <ShoppingBag className="h-4 w-4 md:h-5 md:w-5 text-accent shrink-0" />
+                        <h4 className="font-bold text-foreground text-[10px] md:text-sm truncate">Extra Budget (Shopping, Tips)</h4>
                       </div>
-                      <span className="text-sm font-bold text-accent bg-accent/15 px-3 py-1 rounded-lg shrink-0">{miscPercent}%</span>
+                      <span className="text-[10px] md:text-sm font-bold text-accent bg-accent/15 px-2 md:px-3 py-0.5 md:py-1 rounded-md md:rounded-lg shrink-0">{miscPercent}%</span>
                     </div>
                     <input
                       type="range"
@@ -382,9 +380,9 @@ const CalculatorPage = () => {
                       step={1}
                       value={miscPercent}
                       onChange={(e) => setMiscPercent(Number(e.target.value))}
-                      className="w-full h-2 bg-muted rounded-full appearance-none cursor-pointer accent-accent"
+                      className="w-full h-1.5 md:h-2 bg-muted rounded-full appearance-none cursor-pointer accent-accent"
                     />
-                    <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                    <div className="flex justify-between text-[9px] md:text-xs text-muted-foreground mt-1 md:mt-2">
                       <span>0%</span>
                       <span>10%</span>
                       <span>20%</span>
@@ -394,20 +392,20 @@ const CalculatorPage = () => {
               )}
 
               {/* Nav Buttons */}
-              <div className="flex items-center justify-between mt-8">
+              <div className="flex items-center justify-between mt-4 md:mt-8">
                 <button
                   onClick={() => setActiveTab(Math.max(0, activeTab - 1))}
                   disabled={activeTab === 0}
-                  className="inline-flex items-center gap-2 rounded-lg border border-foreground/10 px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted/50 transition-all disabled:opacity-30"
+                  className="inline-flex items-center gap-1.5 md:gap-2 rounded-lg border border-foreground/10 px-3 py-2 md:px-6 md:py-3 text-[10px] md:text-sm font-semibold text-foreground hover:bg-muted/50 transition-all disabled:opacity-30"
                 >
-                  <ArrowLeft className="h-4 w-4" /> Back
+                  <ArrowLeft className="h-3 w-3 md:h-4 md:w-4" /> Back
                 </button>
                 <button
                   onClick={() => setActiveTab(Math.min(3, activeTab + 1))}
                   disabled={activeTab === 3}
-                  className="inline-flex items-center gap-2 rounded-lg bg-accent text-accent-foreground px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all disabled:opacity-30"
+                  className="inline-flex items-center gap-1.5 md:gap-2 rounded-lg bg-accent text-accent-foreground px-3 py-2 md:px-6 md:py-3 text-[10px] md:text-sm font-semibold hover:brightness-110 transition-all disabled:opacity-30"
                 >
-                  Next Step <ArrowRight className="h-4 w-4" />
+                  Next Step <ArrowRight className="h-3 w-3 md:h-4 md:w-4" />
                 </button>
               </div>
             </div>
@@ -417,22 +415,22 @@ const CalculatorPage = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="glass-card rounded-2xl p-6"
+                className="glass-card rounded-xl md:rounded-2xl p-4 md:p-6"
               >
-                <div className="flex items-center justify-between mb-1">
-                  <h3 className="font-display text-xl font-bold text-foreground">Your Estimate</h3>
-                  <Calculator className="h-5 w-5 text-muted-foreground" />
+                <div className="flex items-center justify-between mb-0.5 md:mb-1">
+                  <h3 className="font-display text-sm md:text-xl font-bold text-foreground">Your Estimate</h3>
+                  <Calculator className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />
                 </div>
-                <p className="text-sm text-muted-foreground mb-6">Detailed cost breakdown</p>
+                <p className="text-[10px] md:text-sm text-muted-foreground mb-3 md:mb-6">Detailed cost breakdown</p>
 
                 {/* Total */}
-                <div className="rounded-xl bg-accent/10 p-5 mb-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Total Estimated Cost</p>
-                  <p className="text-3xl font-bold text-accent">₹{estimate.total.toLocaleString()}</p>
+                <div className="rounded-lg md:rounded-xl bg-accent/10 p-3 md:p-5 mb-3 md:mb-6">
+                  <p className="text-[9px] md:text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5 md:mb-1">Total Estimated Cost</p>
+                  <p className="text-xl md:text-3xl font-bold text-accent">₹{estimate.total.toLocaleString()}</p>
                 </div>
 
                 {/* Progress bar */}
-                <div className="h-2 rounded-full bg-muted/30 mb-6 overflow-hidden flex">
+                <div className="h-1.5 md:h-2 rounded-full bg-muted/30 mb-3 md:mb-6 overflow-hidden flex">
                   {breakdown.map((b, i) => {
                     const pct = estimate.total > 0 ? (b.value / estimate.total) * 100 : 0;
                     return pct > 0 ? (
@@ -442,11 +440,11 @@ const CalculatorPage = () => {
                 </div>
 
                 {/* Line items */}
-                <div className="space-y-3 mb-6">
+                <div className="space-y-1.5 md:space-y-3 mb-3 md:mb-6">
                   {breakdown.map((b) => (
-                    <div key={b.label} className="flex items-center justify-between text-sm gap-2">
-                      <span className="flex items-center gap-2 text-muted-foreground min-w-0">
-                        <span className={`h-2 w-2 rounded-full ${b.color} shrink-0`} />
+                    <div key={b.label} className="flex items-center justify-between text-[10px] md:text-sm gap-2">
+                      <span className="flex items-center gap-1.5 md:gap-2 text-muted-foreground min-w-0">
+                        <span className={`h-1.5 w-1.5 md:h-2 md:w-2 rounded-full ${b.color} shrink-0`} />
                         <span className="truncate">{b.label}</span>
                       </span>
                       <span className="font-semibold text-foreground">₹{b.value.toLocaleString()}</span>
@@ -454,8 +452,8 @@ const CalculatorPage = () => {
                   ))}
                 </div>
 
-                <button className="w-full rounded-lg bg-accent text-accent-foreground py-3 text-sm font-semibold hover:brightness-110 transition-all flex items-center justify-center gap-2">
-                  <Sparkles className="h-4 w-4" /> Book Now & Finalize
+                <button className="w-full rounded-lg bg-accent text-accent-foreground py-2 md:py-3 text-[10px] md:text-sm font-semibold hover:brightness-110 transition-all flex items-center justify-center gap-1.5 md:gap-2">
+                  <Sparkles className="h-3 w-3 md:h-4 md:w-4" /> Book Now & Finalize
                 </button>
               </motion.div>
             </div>
