@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Calculator, MapPin, Minus, Plus, Hotel, UtensilsCrossed, Waves, ShieldCheck, ArrowLeft, ArrowRight, Sparkles, Plane, CheckCircle2, ShoppingBag } from "lucide-react";
+import { Calculator, MapPin, Minus, Plus, Hotel, UtensilsCrossed, Waves, ShieldCheck, ArrowLeft, ArrowRight, Sparkles, Plane, CheckCircle2, ShoppingBag, Fish, Anchor, Wind, Ship, Sailboat, Camera, Flame, Sofa, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
@@ -32,14 +32,18 @@ const mealPlans = [
 ];
 
 const activities = [
-  { name: "Scuba Diving", cost: 3500 },
-  { name: "Snorkeling", cost: 1500 },
-  { name: "Sea Walking", cost: 3000 },
-  { name: "Parasailing", cost: 2000 },
-  { name: "Jet Ski", cost: 1500 },
-  { name: "Glass Bottom Boat", cost: 800 },
-  { name: "Kayaking", cost: 1000 },
-  { name: "Banana Boat", cost: 700 },
+  { name: "Scuba Diving", cost: 5000, icon: Fish, popular: true },
+  { name: "Sea Walking", cost: 4000, icon: Anchor, popular: false },
+  { name: "Snorkeling", cost: 1500, icon: Waves, popular: true },
+  { name: "Parasailing", cost: 3500, icon: Wind, popular: false },
+  { name: "Night Kayaking", cost: 3500, icon: Sailboat, popular: true },
+  { name: "Glass Bottom Boat", cost: 2500, icon: Ship, popular: false },
+  { name: "Jet Ski Ride", cost: 1500, icon: Waves, popular: false },
+  { name: "Semi Submarine", cost: 2500, icon: Anchor, popular: false },
+  { name: "Sofa Ride", cost: 1000, icon: Sofa, popular: false },
+  { name: "Banana Ride", cost: 1000, icon: Waves, popular: false },
+  { name: "Candlelight Dinner", cost: 8000, icon: Flame, popular: false },
+  { name: "Photography Tour", cost: 6000, icon: Camera, popular: false },
 ];
 
 const extras = [
@@ -259,18 +263,34 @@ const CalculatorPage = () => {
                   <h3 className="font-display text-xl font-bold text-accent mb-6 flex items-center gap-2">
                     <span className="w-1 h-6 bg-accent rounded-full" /> Pick your activities
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 gap-4">
                     {activities.map((a, i) => (
                       <button
                         key={a.name}
                         onClick={() => toggleActivity(i)}
-                        className={`glass-card rounded-xl p-4 text-center transition-all ${
+                        className={`glass-card rounded-xl p-5 flex items-center gap-4 text-left transition-all ${
                           selectedActivities.includes(i) ? "border-accent bg-accent/5" : "hover:border-accent/30"
                         }`}
                       >
-                        <Waves className="h-6 w-6 text-accent mx-auto mb-2" />
-                        <h4 className="font-bold text-foreground text-sm">{a.name}</h4>
-                        <p className="text-xs text-accent font-semibold mt-1">₹{a.cost.toLocaleString()}/person</p>
+                        <div className={`flex h-12 w-12 items-center justify-center rounded-xl shrink-0 ${
+                          selectedActivities.includes(i) ? "bg-accent/20" : "bg-muted/50"
+                        }`}>
+                          <a.icon className={`h-6 w-6 ${selectedActivities.includes(i) ? "text-accent" : "text-muted-foreground"}`} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <h4 className="font-bold text-foreground text-sm">{a.name}</h4>
+                            {a.popular && (
+                              <span className="text-[10px] font-bold bg-accent text-accent-foreground px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <Star className="h-3 w-3" fill="currentColor" /> Popular
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-accent font-semibold mt-0.5">+₹{a.cost.toLocaleString()}/person</p>
+                        </div>
+                        {selectedActivities.includes(i) && (
+                          <CheckCircle2 className="h-6 w-6 text-accent shrink-0" />
+                        )}
                       </button>
                     ))}
                   </div>
