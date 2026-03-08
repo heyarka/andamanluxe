@@ -55,9 +55,9 @@ const AnimatedBackground = () => {
 
       // Draw floating orbs
       const orbs = [
-        { x: 0.2 + Math.sin(time * 0.7) * 0.15, y: 0.3 + Math.cos(time * 0.5) * 0.1, r: 350, color: "59, 130, 246", alpha: 0.14 },
-        { x: 0.8 + Math.sin(time * 0.5 + 2) * 0.12, y: 0.5 + Math.cos(time * 0.8 + 1) * 0.15, r: 300, color: "217, 160, 45", alpha: 0.1 },
-        { x: 0.5 + Math.sin(time * 0.6 + 4) * 0.18, y: 0.7 + Math.cos(time * 0.4 + 3) * 0.12, r: 250, color: "139, 92, 246", alpha: 0.1 },
+        { x: 0.2 + Math.sin(time * 0.7) * 0.15, y: 0.3 + Math.cos(time * 0.5) * 0.1, r: 350, color: "59, 130, 246", alpha: 0.06 },
+        { x: 0.8 + Math.sin(time * 0.5 + 2) * 0.12, y: 0.5 + Math.cos(time * 0.8 + 1) * 0.15, r: 300, color: "217, 160, 45", alpha: 0.05 },
+        { x: 0.5 + Math.sin(time * 0.6 + 4) * 0.18, y: 0.7 + Math.cos(time * 0.4 + 3) * 0.12, r: 250, color: "139, 92, 246", alpha: 0.05 },
       ];
 
       orbs.forEach((orb) => {
