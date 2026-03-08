@@ -198,7 +198,7 @@ const PackageCards = ({ tripType, profile = "Indian Resident", onStartOver }: Pa
               <DialogDescription className="text-muted-foreground mt-2">
                 Great choice! You've selected the{" "}
                 <span className="font-semibold text-accent">{selectedPkg?.name}</span>{" "}
-                package ({selectedPkg?.duration}, {selectedPkg?.price}/person). We'll take you to our contact section where you can share your details, or reach us directly.
+                package ({selectedPkg?.duration}, {selectedPkg ? getPrice(selectedPkg) : ''}/person). We'll take you to our contact section where you can share your details, or reach us directly.
               </DialogDescription>
             </DialogHeader>
 
