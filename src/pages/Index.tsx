@@ -1,19 +1,26 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import PathCards from "@/components/PathCards";
-import ReviewsSection from "@/components/ReviewsSection";
+import DestinationGrid from "@/components/DestinationGrid";
+import ExperiencesSection from "@/components/ExperiencesSection";
+import TripBuilder from "@/components/TripBuilder";
+import StatsSection from "@/components/StatsSection";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import GallerySection from "@/components/GallerySection";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <PathCards />
-      <SectionDivider />
-      <ReviewsSection />
-      <SectionDivider />
+      <DestinationGrid />
+      <ExperiencesSection />
+      <TripBuilder />
+      <StatsSection />
+      <TestimonialsCarousel />
+      <GallerySection />
+      <CTASection />
       <Footer />
     </div>
   );
