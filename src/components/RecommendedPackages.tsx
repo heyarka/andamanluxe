@@ -1,58 +1,63 @@
 import { motion } from "framer-motion";
-import { Clock, MapPin, ArrowRight, Heart, Users, Compass, Sun } from "lucide-react";
+import { Clock, MapPin, Users, ArrowRight, Star, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import honeymoon1 from "@/assets/honeymoon-1.jpg";
 import honeymoon2 from "@/assets/honeymoon-2.jpg";
 import honeymoon3 from "@/assets/honeymoon-3.jpg";
+import snorkeling from "@/assets/snorkeling.jpg";
 
 const recommendedPackages = [
   {
-    slug: "island-romance-getaway",
-    name: "Island Romance Getaway",
-    category: "Honeymoon",
-    categoryIcon: Heart,
-    duration: "6D/5N",
-    islands: "3 Islands",
-    price: "₹38,999",
-    image: honeymoon2,
-    highlight: "Most Popular",
-    description: "Private yacht cruises, bioluminescent kayaking, and luxury resort stays.",
+    slug: "island-hopping-family-fun",
+    name: "Family Paradise",
+    category: "Premium",
+    duration: "6 Days",
+    price: "₹32K",
+    people: "4–6 people",
+    location: "Andaman",
+    image: honeymoon1,
+    featured: false,
+    description: "Perfect family vacation with kid-friendly activities, comfortable accommodations, and fun for all ages",
+    features: ["Kid-friendly activities", "Family rooms", "Safe water sports"],
   },
   {
-    slug: "island-hopping-family-fun",
-    name: "Island Hopping Family Fun",
-    category: "Family",
-    categoryIcon: Users,
-    duration: "6D/5N",
-    islands: "3 Islands",
-    price: "₹32,999",
-    image: honeymoon3,
-    highlight: "Best for Families",
-    description: "Snorkeling, limestone caves, bicycle tours, and bioluminescent kayaking.",
+    slug: "island-romance-getaway",
+    name: "Honeymoon Special",
+    category: "Premium",
+    duration: "6 Days",
+    price: "₹38K",
+    people: "2 people",
+    location: "Andaman",
+    image: honeymoon2,
+    featured: true,
+    description: "Perfect 5 nights 6 days romantic itinerary with time-optimized schedule for couples",
+    features: ["Candlelit beach dinners", "Couple spa treatments", "Private beach picnic"],
   },
   {
     slug: "thrill-seeker",
-    name: "Thrill-Seeker Expedition",
-    category: "Adventure",
-    categoryIcon: Compass,
-    duration: "6D/5N",
-    islands: "3 Islands",
-    price: "₹34,999",
-    image: honeymoon1,
-    highlight: "Top Adventure",
-    description: "Scuba diving, night kayaking, jungle treks, and limestone cave explorations.",
+    name: "Standard Andaman",
+    category: "Premium",
+    duration: "6 Days",
+    price: "₹25K",
+    people: "2–6 people",
+    location: "Andaman",
+    image: honeymoon3,
+    featured: false,
+    description: "Budget-friendly complete Andaman tour covering all major attractions",
+    features: ["All major islands covered", "Essential water activities", "Comfortable hotels"],
   },
   {
     slug: "golden-andaman-retreat",
-    name: "Golden Andaman Retreat",
-    category: "Leisure",
-    categoryIcon: Sun,
-    duration: "7D/6N",
-    islands: "3 Islands",
-    price: "₹42,999",
-    image: honeymoon2,
-    highlight: "Premium Comfort",
-    description: "Bird-watching, cooking classes, sunset photography, and private AC travel.",
+    name: "Luxury Retreat",
+    category: "Premium",
+    duration: "7 Days",
+    price: "₹42K",
+    people: "2–4 people",
+    location: "Andaman",
+    image: snorkeling,
+    featured: false,
+    description: "Premium leisure experience with private tours, sunset cruises, and luxury stays",
+    features: ["Private AC car throughout", "Sunset photography tour", "Cooking class experience"],
   },
 ];
 
@@ -60,7 +65,7 @@ const RecommendedPackages = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 md:py-28 bg-muted/30">
+    <section className="py-20 md:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,73 +86,93 @@ const RecommendedPackages = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {recommendedPackages.map((pkg, i) => {
-            const Icon = pkg.categoryIcon;
-            return (
-              <motion.div
-                key={pkg.slug}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group cursor-pointer"
-                onClick={() => navigate(`/package/${pkg.slug}`)}
-              >
-                <div className="rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 hover:-translate-y-1 h-full flex flex-col">
-                  {/* Image */}
-                  <div className="relative h-48 md:h-52 overflow-hidden">
-                    <img
-                      src={pkg.image}
-                      alt={pkg.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    {/* Highlight badge */}
-                    <span className="absolute top-3 left-3 bg-accent text-accent-foreground text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full">
-                      {pkg.highlight}
+          {recommendedPackages.map((pkg, i) => (
+            <motion.div
+              key={pkg.slug}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group"
+            >
+              <div className="rounded-2xl overflow-hidden bg-card border border-border/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
+                {/* Image area */}
+                <div className="relative h-52 md:h-56 overflow-hidden">
+                  <img
+                    src={pkg.image}
+                    alt={pkg.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Premium badge */}
+                  <span className="absolute top-3 left-3 bg-[hsl(217,91%,60%)] text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                    <Star className="h-3 w-3" fill="hsl(45,93%,58%)" stroke="hsl(45,93%,58%)" />
+                    PREMIUM
+                  </span>
+                  {/* Price overlay */}
+                  <div className="absolute bottom-3 right-3 text-right">
+                    <span className="text-white/70 text-[9px] md:text-[10px] uppercase tracking-wider font-medium block">
+                      Starting From
                     </span>
-                    {/* Category badge */}
-                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-white/90 text-xs font-medium">
-                      <Icon className="h-3.5 w-3.5" />
-                      {pkg.category}
-                    </div>
+                    <span className="text-white text-xl md:text-2xl font-bold drop-shadow-lg">
+                      {pkg.price}
+                    </span>
                   </div>
-
-                  {/* Content */}
-                  <div className="p-4 md:p-5 flex flex-col flex-1">
-                    <h3 className="font-display text-base md:text-lg font-bold text-foreground mb-1.5 leading-tight">
-                      {pkg.name}
-                    </h3>
-                    <p className="text-muted-foreground text-xs md:text-sm mb-3 leading-relaxed flex-1">
-                      {pkg.description}
-                    </p>
-
-                    <div className="flex items-center gap-3 text-[10px] md:text-xs text-muted-foreground mb-3">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" /> {pkg.duration}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3" /> {pkg.islands}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-3 border-t border-border/50">
-                      <div>
-                        <span className="text-lg md:text-xl font-bold text-accent">{pkg.price}</span>
-                        <span className="text-[10px] md:text-xs text-muted-foreground"> /person</span>
-                      </div>
-                      <span className="flex items-center gap-1 text-xs font-medium text-accent group-hover:gap-2 transition-all">
-                        View <ArrowRight className="h-3.5 w-3.5" />
-                      </span>
-                    </div>
-                  </div>
+                  {/* Duration badge */}
+                  <span className="absolute bottom-3 left-3 bg-[hsl(217,91%,60%)] text-white text-[10px] md:text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                    <Clock className="h-3 w-3" />
+                    {pkg.duration.toUpperCase()}
+                  </span>
+                  {/* Gradient overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                 </div>
-              </motion.div>
-            );
-          })}
+
+                {/* Content */}
+                <div className="p-5 md:p-6 flex flex-col flex-1">
+                  <h3 className="font-display text-lg md:text-xl font-bold text-foreground mb-2 leading-tight">
+                    {pkg.name}
+                  </h3>
+                  <p className="text-muted-foreground text-xs md:text-sm mb-4 leading-relaxed">
+                    {pkg.description}
+                  </p>
+
+                  {/* People & Location */}
+                  <div className="flex items-center gap-4 text-xs md:text-sm text-muted-foreground mb-4">
+                    <span className="flex items-center gap-1.5">
+                      <Users className="h-3.5 w-3.5" /> {pkg.people}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="h-3.5 w-3.5" /> {pkg.location}
+                    </span>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-2 mb-5 flex-1">
+                    {pkg.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-xs md:text-sm text-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={() => navigate(`/package/${pkg.slug}`)}
+                    className={`w-full rounded-xl py-3 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
+                      pkg.featured
+                        ? "bg-[hsl(217,91%,60%)] text-white hover:bg-[hsl(217,91%,50%)] shadow-lg shadow-[hsl(217,91%,60%)]/20"
+                        : "border border-border text-foreground hover:bg-muted/50"
+                    }`}
+                  >
+                    View Package Details <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* View all packages */}
+        {/* View all */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
