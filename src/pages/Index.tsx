@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import DestinationGrid from "@/components/DestinationGrid";
 import ExperiencesSection from "@/components/ExperiencesSection";
+import RecommendedPackages from "@/components/RecommendedPackages";
 import TripBuilder from "@/components/TripBuilder";
 import StatsSection from "@/components/StatsSection";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
