@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
 import heroImage from "@/assets/hero-beach-bg.jpg";
 
 const animatedButtonStyles = `
@@ -194,6 +195,7 @@ const animatedButtonStyles = `
 `;
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const [focused, setFocused] = useState(false);
   const exploreText = "Explore Destinations";
   const exploreLetters = exploreText.split("");
@@ -245,22 +247,20 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <a
-            href="/book"
+          <Link
+            to="/book"
             className="inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-accent-foreground btn-primary-glow transition-all duration-300 hover:brightness-110 font-body"
           >
             Plan Your Trip
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
 
-          <a
-            href="/explore"
+          <button
             className={`plane-button ${focused ? "focused" : ""}`}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               setFocused(true);
               setTimeout(() => {
-                window.location.href = "/explore";
+                navigate("/explore");
               }, 1200);
             }}
           >
@@ -309,7 +309,7 @@ const HeroSection = () => {
                 ))}
               </p>
             </div>
-          </a>
+          </button>
         </motion.div>
       </div>
 
