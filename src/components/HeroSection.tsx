@@ -266,10 +266,9 @@ const HeroSection = () => {
             <div className="outline-ring" />
             <div className="plane-state state-default">
               <div className="plane-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 12h20" />
-                  <path d="M13 2l9 10-9 10" />
-                  <path d="M13 2v20" />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 2L11 13" />
+                  <path d="M22 2L15 22L11 13L2 9L22 2Z" />
                 </svg>
               </div>
               <p>
