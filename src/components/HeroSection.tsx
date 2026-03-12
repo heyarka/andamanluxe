@@ -11,7 +11,7 @@ const animatedButtonStyles = `
     --radius: 14px;
     cursor: pointer;
     border-radius: var(--radius);
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     border: none;
     box-shadow: 0 0.5px 0.5px 1px rgba(255, 255, 255, 0.2),
       0 10px 20px rgba(0, 0, 0, 0.2), 0 4px 5px 0px rgba(0, 0, 0, 0.05);
@@ -20,14 +20,16 @@ const animatedButtonStyles = `
     justify-content: center;
     position: relative;
     transition: all 0.3s ease;
-    min-width: 200px;
-    padding: 20px;
-    height: 68px;
-    font-family: "Inter", sans-serif;
+    min-width: 220px;
+    padding: 14px 24px;
+    height: 50px;
+    font-family: inherit;
     font-style: normal;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     background: transparent;
+    text-decoration: none;
+    color: #1a1a1a;
   }
   .plane-button:hover {
     transform: scale(1.02);
@@ -264,10 +266,9 @@ const HeroSection = () => {
             <div className="outline-ring" />
             <div className="plane-state state-default">
               <div className="plane-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 12h20" />
-                  <path d="M13 2l9 10-9 10" />
-                  <path d="M13 2v20" />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 2L11 13" />
+                  <path d="M22 2L15 22L11 13L2 9L22 2Z" />
                 </svg>
               </div>
               <p>
