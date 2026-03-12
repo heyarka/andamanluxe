@@ -20,7 +20,7 @@ const animatedButtonStyles = `
     justify-content: center;
     position: relative;
     transition: all 0.3s ease;
-    min-width: 220px;
+    min-width: 230px;
     padding: 14px 24px;
     height: 50px;
     font-family: inherit;
@@ -166,12 +166,11 @@ const animatedButtonStyles = `
     100% { opacity: 0; width: 160px; }
   }
   .plane-state {
-    padding-left: 24px;
+    padding-left: 40px;
     z-index: 3;
     display: flex;
     position: relative;
   }
-  .state-default span:nth-child(4) { margin-right: 5px; }
   .state-sent { display: none; }
   .state-sent svg { transform: scale(1.25); margin-right: 8px; }
   .plane-button.focused .state-default { position: absolute; }
