@@ -44,17 +44,18 @@ const Explore = () => {
       {/* Hero Header */}
       <section className="relative min-h-[88vh] md:min-h-screen flex items-center justify-center overflow-hidden px-6 text-center">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
           style={{ backgroundImage: "url('/Firefly.png')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-900/35 to-slate-950/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/32 via-black/22 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-44 md:h-56 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
         <div className="relative z-10 max-w-5xl mx-auto pt-20 md:pt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center rounded-full border border-white/25 bg-white/20 px-5 py-2 text-sm md:text-base font-semibold tracking-wide text-white backdrop-blur-md mb-6"
+            className="inline-flex items-center rounded-full border border-white/70 bg-white/35 px-5 py-2 text-sm md:text-base font-semibold tracking-wide text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] backdrop-blur-md mb-6"
           >
             Explore Paradise
           </motion.div>
@@ -63,18 +64,18 @@ const Explore = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-5xl sm:text-6xl md:text-8xl font-bold leading-[0.95] text-white mb-6"
+            className="font-display text-5xl sm:text-6xl md:text-8xl font-bold leading-[0.95] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.65)] mb-6"
           >
             Curated
             <br />
-            <span className="text-sky-300">Adventures</span>
+            <span className="text-sky-200 [text-shadow:0_2px_8px_rgba(0,0,0,0.65)]">Adventures</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-white/90 max-w-3xl mx-auto text-xl md:text-5 leading-relaxed"
+            className="text-white max-w-3xl mx-auto text-xl md:text-5 leading-relaxed [text-shadow:0_2px_8px_rgba(0,0,0,0.65)]"
           >
             From deep sea diving to sunset cruises, discover unforgettable experiences tailored just for you in the Andaman Islands.
           </motion.p>

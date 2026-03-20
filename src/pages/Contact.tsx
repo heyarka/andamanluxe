@@ -68,21 +68,22 @@ const Contact = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-28 pb-12 px-6 text-center overflow-hidden">
+      <section className="relative isolate pt-28 pb-12 px-6 text-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center [mask-image:linear-gradient(to_bottom,black_78%,transparent_100%)]"
           style={{ backgroundImage: "url('/crew.png')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/45 via-slate-900/40 to-slate-900/55" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/62 via-black/46 to-black/18" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-28 md:h-36 bg-gradient-to-t from-background via-background/45 to-transparent" />
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-10">
-          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-white border border-white/45 rounded-full px-4 py-1.5 mb-4 backdrop-blur-sm bg-white/10">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-20 mx-auto max-w-3xl">
+          <span className="mb-3 inline-block rounded-full border border-white/70 bg-white/18 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
             Get In Touch
           </span>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3 drop-shadow-sm">
-            Plan Your <span className="italic text-sky-200">Journey</span>
+          <h1 className="font-display mb-3 text-4xl font-black tracking-tight text-white md:text-5xl">
+            Plan Your <span className="italic text-white">Journey</span>
           </h1>
-          <p className="text-white/90 max-w-xl mx-auto">
+          <p className="mx-auto max-w-xl text-white/92 md:text-lg">
             Our travel experts are ready to create your perfect Andaman experience
           </p>
         </motion.div>
@@ -101,7 +102,7 @@ const Contact = () => {
               </p>
               <div className="space-y-8">
                 {[
-                  { icon: Phone, title: "Phone", lines: ["+91 86373 27297"] },
+                  { icon: Phone, title: "Phone", lines: ["+91-8637327297"] },
                   { icon: Mail, title: "Email", lines: ["contact@andamanluxe.com"] },
                   { icon: MapPin, title: "Office", lines: ["Port Blair, Andaman & Nicobar Islands", "India - 744101"] },
                 ].map((item) => (

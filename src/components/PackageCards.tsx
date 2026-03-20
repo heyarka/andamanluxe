@@ -12,9 +12,18 @@ import {
 import { PackageDetailsModal } from "@/components/PackageDetailsModal";
 import { PackageCustomizationPremium } from "@/components/PackageCustomizationPremium";
 import HorizontalScroll from "@/components/HorizontalScroll";
+import cellularJail from "@/assets/cellular-jail.jpg";
+import destinationsImage from "@/assets/destinations.jpg";
+import ferryServices from "@/assets/ferry-services.jpg";
+import govtFerry from "@/assets/govt-ferry.jpg";
 import honeymoon1 from "@/assets/honeymoon-1.jpg";
 import honeymoon2 from "@/assets/honeymoon-2.jpg";
 import honeymoon3 from "@/assets/honeymoon-3.jpg";
+import makruzz from "@/assets/makruzz.jpg";
+import rossSmith from "@/assets/ross-smith.jpg";
+import seaWalking from "@/assets/sea-walking.jpg";
+import snorkeling from "@/assets/snorkeling.jpg";
+import waterSports from "@/assets/water-sports.jpg";
 
 interface PackageCardsProps {
   tripType: string;
@@ -29,21 +38,21 @@ const honeymoonPackages = [
 ];
 
 const familyPackages = [
-  { slug: "andaman-family-explorer", name: "Andaman Family Explorer", duration: "4D/3N", islands: "2 Islands", priceUSD: "$229", priceINR: "₹18,999", image: honeymoon1, recommended: false, features: ["Family-friendly resort with pool", "Glass-bottom boat at North Bay", "Cellular Jail heritage tour", "Radhanagar Beach day trip"] },
-  { slug: "island-hopping-family-fun", name: "Island Hopping Family Fun", duration: "6D/5N", islands: "3 Islands", priceUSD: "$399", priceINR: "₹32,999", image: honeymoon2, recommended: true, features: ["Snorkeling for all ages", "Baratang Limestone Cave trek", "Bicycle tour of Neil Island", "Bioluminescent kayaking"] },
-  { slug: "grand-andaman-family-vacation", name: "Grand Andaman Family Vacation", duration: "8D/7N", islands: "4 Islands", priceUSD: "$659", priceINR: "₹54,999", image: honeymoon3, recommended: false, features: ["Baratang Limestone Caves trip", "Private boat to secluded beach", "Intro scuba for teens", "All-inclusive dining"] },
+  { slug: "andaman-family-explorer", name: "Andaman Family Explorer", duration: "4D/3N", islands: "2 Islands", priceUSD: "$229", priceINR: "₹18,999", image: destinationsImage, recommended: false, features: ["Family-friendly resort with pool", "Glass-bottom boat at North Bay", "Cellular Jail heritage tour", "Radhanagar Beach day trip"] },
+  { slug: "island-hopping-family-fun", name: "Island Hopping Family Fun", duration: "6D/5N", islands: "3 Islands", priceUSD: "$399", priceINR: "₹32,999", image: rossSmith, recommended: true, features: ["Snorkeling for all ages", "Baratang Limestone Cave trek", "Bicycle tour of Neil Island", "Bioluminescent kayaking"] },
+  { slug: "grand-andaman-family-vacation", name: "Grand Andaman Family Vacation", duration: "8D/7N", islands: "4 Islands", priceUSD: "$659", priceINR: "₹54,999", image: cellularJail, recommended: false, features: ["Baratang Limestone Caves trip", "Private boat to secluded beach", "Intro scuba for teens", "All-inclusive dining"] },
 ];
 
 const adventurePackages = [
-  { slug: "thrill-seeker", name: "Andaman Thrill-Seeker Expedition", duration: "6D/5N", islands: "3 Islands", priceUSD: "$420", priceINR: "₹34,999", image: honeymoon1, recommended: true, features: ["Introductory Scuba Dive", "Night Kayaking in Mangroves", "Elephant Beach Jungle Trek", "Baratang Limestone Caves"] },
-  { slug: "extreme-andaman-challenge", name: "Extreme Andaman Challenge", duration: "8D/7N", islands: "4 Islands", priceUSD: "$639", priceINR: "₹52,999", image: honeymoon2, recommended: false, features: ["PADI Open Water Certification", "Mud Volcano trek at Baratang", "Mangrove survival kayaking", "Jungle camping on Havelock"] },
-  { slug: "ultimate-andaman-explorer", name: "Ultimate Andaman Explorer", duration: "10D/9N", islands: "5 Islands", priceUSD: "$899", priceINR: "₹74,999", image: honeymoon3, recommended: false, features: ["Helicopter scenic flight", "Barren Island volcano cruise", "Advanced scuba at Cinque Island", "Live-aboard boat experience"] },
+  { slug: "thrill-seeker", name: "Andaman Thrill-Seeker Expedition", duration: "6D/5N", islands: "3 Islands", priceUSD: "$420", priceINR: "₹34,999", image: waterSports, recommended: true, features: ["Introductory Scuba Dive", "Night Kayaking in Mangroves", "Elephant Beach Jungle Trek", "Baratang Limestone Caves"] },
+  { slug: "extreme-andaman-challenge", name: "Extreme Andaman Challenge", duration: "8D/7N", islands: "4 Islands", priceUSD: "$639", priceINR: "₹52,999", image: seaWalking, recommended: false, features: ["PADI Open Water Certification", "Mud Volcano trek at Baratang", "Mangrove survival kayaking", "Jungle camping on Havelock"] },
+  { slug: "ultimate-andaman-explorer", name: "Ultimate Andaman Explorer", duration: "10D/9N", islands: "5 Islands", priceUSD: "$899", priceINR: "₹74,999", image: snorkeling, recommended: false, features: ["Helicopter scenic flight", "Barren Island volcano cruise", "Advanced scuba at Cinque Island", "Live-aboard boat experience"] },
 ];
 
 const seniorPackages = [
-  { slug: "peaceful-andaman-escape", name: "Peaceful Andaman Escape", duration: "5D/4N", islands: "2 Islands", priceUSD: "$299", priceINR: "₹24,999", image: honeymoon1, recommended: false, features: ["Accessible heritage tours", "Glass-bottom boat coral viewing", "Ayurvedic spa session", "Gentle Radhanagar Beach walk"] },
-  { slug: "golden-andaman-retreat", name: "Golden Andaman Retreat", duration: "7D/6N", islands: "3 Islands", priceUSD: "$519", priceINR: "₹42,999", image: honeymoon2, recommended: true, features: ["Private AC car throughout", "Guided bird-watching walk", "Cooking class experience", "Sunset photography tour"] },
-  { slug: "premium-andaman-leisure", name: "Premium Andaman Leisure", duration: "9D/8N", islands: "4 Islands", priceUSD: "$759", priceINR: "₹62,999", image: honeymoon3, recommended: false, features: ["Personal travel assistant", "Daily wellness program", "Ross Island heritage walk", "Sunset cruise experience"] },
+  { slug: "peaceful-andaman-escape", name: "Peaceful Andaman Escape", duration: "5D/4N", islands: "2 Islands", priceUSD: "$299", priceINR: "₹24,999", image: ferryServices, recommended: false, features: ["Accessible heritage tours", "Glass-bottom boat coral viewing", "Ayurvedic spa session", "Gentle Radhanagar Beach walk"] },
+  { slug: "golden-andaman-retreat", name: "Golden Andaman Retreat", duration: "7D/6N", islands: "3 Islands", priceUSD: "$519", priceINR: "₹42,999", image: makruzz, recommended: true, features: ["Private AC car throughout", "Guided bird-watching walk", "Cooking class experience", "Sunset photography tour"] },
+  { slug: "premium-andaman-leisure", name: "Premium Andaman Leisure", duration: "9D/8N", islands: "4 Islands", priceUSD: "$759", priceINR: "₹62,999", image: govtFerry, recommended: false, features: ["Personal travel assistant", "Daily wellness program", "Ross Island heritage walk", "Sunset cruise experience"] },
 ];
 
 function getPackages(tripType: string) {
@@ -112,7 +121,7 @@ const PackageCards = ({ tripType, profile = "Indian Resident", onStartOver }: Pa
         <h1 className="font-display text-xl md:text-5xl font-bold text-foreground mb-1 md:mb-3">
           Your <span className="text-gradient-hero italic">Perfect Packages</span>
         </h1>
-        <p className="text-xs md:text-base text-muted-foreground mb-2 md:mb-4">Handpicked experiences curated just for you</p>
+        <p className="text-xs md:text-base text-white/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)] mb-2 md:mb-4">Handpicked experiences curated just for you</p>
         <button onClick={onStartOver} className="inline-flex items-center gap-1.5 text-xs md:text-sm text-accent hover:text-accent/80 transition-colors font-medium">
           <RefreshCw className="h-3.5 w-3.5 md:h-4 md:w-4" /> Start Over
         </button>

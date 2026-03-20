@@ -111,21 +111,22 @@ const CalculatorPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-20 md:pt-28 pb-8 md:pb-12 px-4 md:px-6 text-center overflow-hidden">
+      <section className="relative isolate pt-20 md:pt-28 pb-8 md:pb-12 px-4 md:px-6 text-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
           style={{ backgroundImage: "url('/Firefly1.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/45 via-slate-900/40 to-slate-900/55" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/62 via-black/52 to-black/34" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-40 md:h-52 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-10">
-          <div className="flex h-10 w-10 md:h-16 md:w-16 items-center justify-center rounded-full bg-white/25 backdrop-blur-sm border border-white/30 mx-auto mb-2 md:mb-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-20 mx-auto max-w-3xl px-2">
+          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-white/30 backdrop-blur-sm shadow-[0_6px_18px_-10px_rgba(0,0,0,0.6)] md:mb-6 md:h-16 md:w-16">
             <Calculator className="h-5 w-5 md:h-8 md:w-8 text-white" />
           </div>
-          <h1 className="font-display text-xl md:text-5xl font-bold text-white mb-1 md:mb-2 drop-shadow-sm">
-            Plan Your <span className="italic text-sky-200">Dream Escape</span>
+          <h1 className="font-display text-3xl font-black leading-[1.05] tracking-tight text-white sm:text-4xl md:text-6xl">
+            Plan Your <span className="italic text-white">Dream </span><span className="italic bg-gradient-to-r from-[#f59e0b] via-[#ef4444] to-[#facc15] bg-clip-text text-transparent">Escape</span>
           </h1>
-          <p className="text-[10px] md:text-base text-white/90 max-w-xl mx-auto">
+          <p className="mx-auto mt-3 max-w-2xl text-sm font-medium leading-relaxed text-white/88 md:mt-4 md:text-lg">
             Calculate your perfect Andaman getaway with our interactive cost estimator.
           </p>
         </motion.div>
@@ -146,7 +147,7 @@ const CalculatorPage = () => {
                     className={`rounded-md md:rounded-lg py-2 md:py-3 text-[10px] md:text-sm font-semibold transition-all ${
                       activeTab === i
                         ? "bg-accent text-accent-foreground"
-                        : "text-muted-foreground hover:text-foreground"
+                        : "border border-foreground/15 bg-background/60 text-muted-foreground hover:text-foreground hover:border-accent/35"
                     }`}
                   >
                     {tab}

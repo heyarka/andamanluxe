@@ -205,10 +205,11 @@ const HeroSection = () => {
       <style>{animatedButtonStyles}</style>
 
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
-      <div className="absolute inset-0 hero-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-44 md:h-56 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.p

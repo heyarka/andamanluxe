@@ -55,8 +55,14 @@ const Book = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-6">
-        <div className="container mx-auto max-w-4xl">
+      <section className="relative overflow-hidden pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-6">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[420px] md:h-[520px] bg-cover bg-center [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
+          style={{ backgroundImage: "url(/bliss.jpg)" }}
+        />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[420px] md:h-[520px] bg-gradient-to-b from-transparent via-transparent to-background/85" />
+
+        <div className="relative container mx-auto max-w-4xl">
           {/* Stepper */}
           <div className="flex items-center justify-center mb-3 md:mb-4">
             {[1, 2, 3].map((s, i) => (
@@ -68,7 +74,7 @@ const Book = () => {
               </div>
             ))}
           </div>
-          <p className="text-center text-[10px] md:text-sm text-muted-foreground mb-6 md:mb-12">Step {step}: {stepLabels[step - 1]}</p>
+          <p className="text-center text-[10px] md:text-sm text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)] mb-6 md:mb-12">Step {step}: {stepLabels[step - 1]}</p>
 
           <motion.div key={step} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="text-center mb-6 md:mb-12">
             {step === 1 && (
@@ -156,7 +162,7 @@ const Book = () => {
             )}
             {step === 2 && (
               <motion.div key="step2" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ duration: 0.3 }}>
-                <button onClick={() => setStep(1)} className="mb-4 md:mb-8 inline-flex items-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors"><ArrowLeft className="h-3.5 w-3.5 md:h-4 md:w-4" /> Back</button>
+                <button onClick={() => setStep(1)} className="mb-4 md:mb-8 inline-flex items-center gap-1.5 text-xs md:text-sm text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)] hover:text-white transition-colors"><ArrowLeft className="h-3.5 w-3.5 md:h-4 md:w-4" /> Back</button>
                 <div className="md:hidden max-w-md mx-auto">
                   <label htmlFor="trip-type-select" className="sr-only">Select your travel style</label>
                   <div className="relative">
@@ -250,7 +256,7 @@ const Book = () => {
             provokeSwipe
           >
             {[
-              { title: "Phone", lines: ["+91 86373 27297"] },
+              { title: "Phone", lines: ["+91-8637327297"] },
               { title: "Email", lines: ["contact@andamanluxe.com"] },
               { title: "Office", lines: ["Port Blair, A&N Islands", "India - 744101"] },
             ].map((item) => (

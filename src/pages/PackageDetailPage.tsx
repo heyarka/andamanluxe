@@ -289,7 +289,7 @@ const PackageDetailPage = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Call Us</p>
-                    <p className="font-bold text-foreground">+91 98765 43210</p>
+                    <p className="font-bold text-foreground">+91-8637327297</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
